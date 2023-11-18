@@ -169,14 +169,15 @@ void display_clear() {
 }
 
 void display_dots() {
-	display[0][0] = 0;
-	display[0][32] = 0;
-	display[0][64] = 0;
-	display[0][96] = 0;
-	display[16][0] = 0;
-	display[16][32] = 0;
-	display[16][64] = 0;
-	display[16][96] = 0;
+	uint8_t dot_color = 0;
+	display[0][0] = dot_color;
+	display[0][32] = dot_color;
+	display[0][64] = dot_color;
+	display[0][96] = dot_color;
+	display[16][0] = dot_color;
+	display[16][32] = dot_color;
+	display[16][64] = dot_color;
+	display[16][96] = dot_color;
 	
 	
 	
@@ -184,17 +185,39 @@ void display_dots() {
 	display_image(0, oled_display);
 }
 
+void display_rect(int pos) {
+	display[1][1+pos] = 0;
+	display[1][2+pos] = 0;
+	display[1][3+pos] = 0;
+	display[1][4+pos] = 0;
+	display[2][1+pos] = 0;
+	display[2][2+pos] = 0;
+	display[2][3+pos] = 0;
+	display[2][4+pos] = 0;
+	display[3][1+pos] = 0;
+	display[3][2+pos] = 0;
+	display[3][3+pos] = 0;
+	display[3][4+pos] = 0;
+	display[4][1+pos] = 0;
+	display[4][2+pos] = 0;
+	display[4][3+pos] = 0;
+	display[4][4+pos] = 0;
+
+	translateToImage();
+	display_image(0, oled_display);
+}
+
 
 int main() {
 	/* Set up peripheral bus clock */
-	OSCCON &= ~0x180000;
-	OSCCON |= 0x080000;
+	// OSCCON &= ~0x180000;
+	// OSCCON |= 0x080000;
 	
 	/* Set up output pins */
-	AD1PCFG = 0xFFFF;
-	ODCE = 0x0;
-	TRISECLR = 0xFF;
-	PORTE = 0x0;
+	// AD1PCFG = 0xFFFF;
+	// ODCE = 0x0;
+	// TRISECLR = 0xFF;
+	// PORTE = 0x0;
 	
 	/* Output pins for display signals */
 	PORTF = 0xFFFF;
@@ -205,8 +228,8 @@ int main() {
 	TRISGCLR = 0x200;
 	
 	/* Set up input pins */
-	TRISDSET = (1 << 8);
-	TRISFSET = (1 << 1);
+	// TRISDSET = (1 << 8);
+	// TRISFSET = (1 << 1);
 	
 	/* Set up SPI as master */
 	SPI2CON = 0;
@@ -222,7 +245,22 @@ int main() {
 	
 	display_init();
 	display_clear();
-	display_dots();
+	// display_dots();
+	int i;
+	while(1){
+		for(i = 0; i < 124; i++) {
+			display_clear();
+			display_rect(i);
+			delay(10000);
+		}
+		for(i = 123; i > 1; i--) {
+			display_clear();
+			display_rect(i);
+			delay(10000);
+		}
+	}
+	
+	
 	
 
 	for(;;);
