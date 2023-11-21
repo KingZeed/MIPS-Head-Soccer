@@ -45,7 +45,7 @@ int main() {
 	display_init();
 	display_clear();
 	while(1){
-        display_dots();
+		display_dots();
     }
 	
 	return;
