@@ -3,16 +3,20 @@
 #include "project.h"
 
 
-void gameLoop(){
+void singleplayer(){
     while(1){
-        display_dots();
+        /* Game here I guess */
     }
-
 }
 
-void createCharacter(){
-    
+void multieplayer(){
+    while(1){
+        /* multplayer here */
+    }
 }
+
+
+
 
 
 
