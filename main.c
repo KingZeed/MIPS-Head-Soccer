@@ -37,6 +37,7 @@ void setUp(){
 	
 	/* Turn on SPI */
 	SPI2CONSET = 0x8000;
+	
 }
 
 int main() {

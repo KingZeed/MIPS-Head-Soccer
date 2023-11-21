@@ -17,9 +17,9 @@
 #define DISPLAY_RESET_PORT PORTG
 #define DISPLAY_RESET_MASK 0x200
 
-
 uint8_t display[32][128];		// Readable for humans
 uint8_t oled_display[512];
+
 
 void delay(int cyc) {
 	int i;
@@ -86,10 +86,10 @@ void display_image(const uint8_t *data) {
 		DISPLAY_COMMAND_DATA_PORT |= DISPLAY_COMMAND_DATA_MASK;
 		
 		for(j = 0; j < 128; j++)
-			spi_send_recv(~data[i*128 + j]);
+			spi_send_recv(data[i*128 + j]);
 	}
+	
 }
-
 
 
 void translateToOled(){
@@ -103,7 +103,7 @@ void translateToOled(){
 			oled_byte = 0;
 
 			for(memory_row = 0; memory_row < 8; memory_row++){
-				if(!display[8 * page + memory_row][column]){
+				if(display[8 * page + memory_row][column]){
 					oled_byte |= (1 << memory_row);
 				}
 				
@@ -132,8 +132,6 @@ void update_display(){
 	display_image(oled_display);
 }
 
-
-
 void display_dots() {
 	
 	display[0][0] = 1;
@@ -141,6 +139,9 @@ void display_dots() {
 	display[31][0] = 1;
 	display[0][127] = 1;
 	
+	
 	update_display();
 	
 }
+
+
