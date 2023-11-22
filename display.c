@@ -16,8 +16,11 @@
 #define DISPLAY_RESET_PORT PORTG
 #define DISPLAY_RESET_MASK 0x200
 
-uint8_t display[32][128];		// Readable for humans
-uint8_t oled_display[512];
+#define DISPLAY_LENGTH 128
+#define DISPLAY_HEIGHT 32
+
+uint8_t display[DISPLAY_HEIGHT][DISPLAY_LENGTH]; // pixel coordinate system
+uint8_t oled_data[512]; // bytes representing pixels that we send to the oled
 char textbuffer[4][16];
 
 static const uint8_t const font[] = {
@@ -254,50 +257,53 @@ void display_image(const uint8_t *data) {
 		
 		DISPLAY_COMMAND_DATA_PORT |= DISPLAY_COMMAND_DATA_MASK;
 		
-		for(j = 0; j < 128; j++)
-			spi_send_recv(data[i*128 + j]);
+		for(j = 0; j < DISPLAY_LENGTH; j++)
+			spi_send_recv(data[i*DISPLAY_LENGTH + j]);
 	}
 	
 }
-
+/* Translate the display coordinate system to the oled_data */
 void translate_to_oled(){
 
 	int page, column, memory_row;
-	uint8_t oled_byte = 0;
+	uint8_t oled_byte = 0; // The byte we will add to oled_data
 	
+	// Iterate through the display coordinate system
+	// The oled_data will be read through page 0 - 3
 	for(page = 0; page < 4; page++){
 
-		for(column = 0; column < 128; column++) {
+		for(column = 0; column < DISPLAY_LENGTH; column++) {
 			oled_byte = 0;
 
 			for(memory_row = 0; memory_row < 8; memory_row++){
 				if(display[8 * page + memory_row][column]){
-					oled_byte |= (1 << memory_row);
+					oled_byte |= (1 << memory_row); // change the byte everytime a pixel is on
 				}
 				
 			}
-			oled_display[page*128 + column] = oled_byte;
+			oled_data[page*DISPLAY_LENGTH + column] = oled_byte;
 		}
 		
 	}
 
 }
 
+
 void display_clear() {
     int row, column, i;
 
-	for(row = 0; row < 32; row++) {
-		for(column = 0; column < 128; column++) {
+	for(row = 0; row < DISPLAY_HEIGHT; row++) {
+		for(column = 0; column < DISPLAY_LENGTH; column++) {
 		display[row][column] = 0;
 		}
 	}
 	translate_to_oled();
-	display_image(oled_display);
+	display_image(oled_data);
 }
 
 void display_update(){
 	translate_to_oled();
-	display_image(oled_display);
+	display_image(oled_data);
 }
 
 void display_dots() {
