@@ -23,6 +23,7 @@ uint8_t display[DISPLAY_HEIGHT][DISPLAY_LENGTH]; // pixel coordinate system
 uint8_t oled_data[512]; // bytes representing pixels that we send to the oled
 char textbuffer[4][16];
 
+/* From lab */
 static const uint8_t const font[] = {
 	0, 0, 0, 0, 0, 0, 0, 0,
 	0, 0, 0, 0, 0, 0, 0, 0,
@@ -154,6 +155,7 @@ static const uint8_t const font[] = {
 	0, 120, 68, 66, 68, 120, 0, 0,
 };
 
+/* From lab */
 void display_string(int line, char *s) {
 	int i;
 	if(line < 0 || line >= 4)
@@ -169,7 +171,8 @@ void display_string(int line, char *s) {
 			textbuffer[line][i] = ' ';
 }
 
- void string_update() {
+/* From lab */
+void string_update() {
 	int i, j, k;
 	int c;
 	for(i = 0; i < 4; i++) {
@@ -193,11 +196,13 @@ void display_string(int line, char *s) {
 	}
 }
 
+/* From lab */
 void delay(int cyc) {
 	int i;
 	for(i = cyc; i > 0; i--);
 }
 
+/* From lab */
 void spi_send_recv(uint8_t data) {
 	while(!(SPI2STAT & 0x08));
 	SPI2BUF = data;
@@ -205,6 +210,7 @@ void spi_send_recv(uint8_t data) {
 	return SPI2BUF;
 }
 
+/* From lab */
 void display_init() {	 
 	DISPLAY_COMMAND_DATA_PORT &= ~DISPLAY_COMMAND_DATA_MASK; // Clear OLED data/command select
 	delay(10);
@@ -244,6 +250,7 @@ void display_init() {
 	spi_send_recv(0xAF);
 }
 
+/* From lab */
 void display_image(const uint8_t *data) {
 	int i, j;
 	
@@ -262,6 +269,7 @@ void display_image(const uint8_t *data) {
 	}
 	
 }
+
 /* Translate the display coordinate system to the oled_data */
 void translate_to_oled(){
 
@@ -288,7 +296,7 @@ void translate_to_oled(){
 
 }
 
-
+/* Makes the screen black */
 void display_clear() {
     int row, column, i;
 
