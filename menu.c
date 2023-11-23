@@ -34,6 +34,26 @@ void main_menu(){
             display_string(1, "");
             display_string(2, "");
         }
+        if (get_switches(1)) {
+            display_string(0, "switch 1");
+            display_string(1, "");
+            display_string(2, "");
+        }
+        if (get_switches(2)) {
+            display_string(0, "switch 2");
+            display_string(1, "");
+            display_string(2, "");
+        }
+        if (get_switches(3)) {
+            display_string(0, "switch 3");
+            display_string(1, "");
+            display_string(2, "");
+        }
+        if (get_switches(4)) {
+            display_string(0, "switch 4");
+            display_string(1, "");
+            display_string(2, "");
+        }
         
     }
     
