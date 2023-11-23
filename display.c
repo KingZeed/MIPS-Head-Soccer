@@ -1,5 +1,6 @@
 #include <pic32mx.h>
 #include <stdint.h>
+#include "project.h"
 
 
 #define DISPLAY_VDD PORTFbits.RF6
@@ -16,7 +17,7 @@
 #define DISPLAY_RESET_PORT PORTG
 #define DISPLAY_RESET_MASK 0x200
 
-uint8_t display[32][128];		// Readable for humans
+
 uint8_t oled_display[512];
 char textbuffer[4][16];
 

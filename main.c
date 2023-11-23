@@ -45,7 +45,11 @@ int main() {
 	setUp();
 	display_init();
 	display_clear();
-
-	main_menu();
+	draw_left_goal();
+	draw_right_goal();
+	draw_ball_center();
+	draw_player1_start_pos();
+	draw_player2_start_pos();
+	
 	return;
 }
