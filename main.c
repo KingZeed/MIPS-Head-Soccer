@@ -25,7 +25,12 @@ void setUp(){
 	/* Set up input pins */
 	// TRISDSET = (1 << 8);
 	// TRISFSET = (1 << 1);
-	
+
+
+	/* Set button input pins */
+	TRISF |= (0b1 << 1); // button1
+	TRISD |= (0b111 << 5); // button2-4
+
 	/* Set up SPI as master */
 	SPI2CON = 0;
 	SPI2BRG = 4;

@@ -1,5 +1,6 @@
 #include <pic32mx.h>
 #include <stdint.h>
+#include   "project.h"
 
 
 #define DISPLAY_VDD PORTFbits.RF6
@@ -19,7 +20,7 @@
 #define DISPLAY_LENGTH 128
 #define DISPLAY_HEIGHT 32
 
-uint8_t display[DISPLAY_HEIGHT][DISPLAY_LENGTH]; // pixel coordinate system
+
 uint8_t oled_data[512]; // bytes representing pixels that we send to the oled
 char textbuffer[4][16];
 
