@@ -18,11 +18,11 @@ void draw_left_goal();
 
 void draw_right_goal();
 
-void draw_ball_center();
+void draw_ball();
 
-void draw_player1_start_pos();
+void draw_player1();
 
-void draw_player2_start_pos();
+void draw_player2();
 
 int get_button(int button_numbe);
 

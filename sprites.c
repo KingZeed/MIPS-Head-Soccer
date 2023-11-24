@@ -139,7 +139,7 @@ void draw_right_goal() {
     display_update();
 };
 
-void draw_ball_center() {
+void draw_ball(int x, int y) {
     
     display[13][59] = dot_color;
     display[12][59] = dot_color;
@@ -227,7 +227,7 @@ void draw_player1_start_pos() {
     display_update();
 };
 
-void draw_player2_start_pos() {
+void draw_player2() {
     
     display[31][103] = dot_color;
     display[30][103] = dot_color;

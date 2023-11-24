@@ -54,9 +54,9 @@ int main() {
 	display_clear();
 	draw_left_goal();
 	draw_right_goal();
-	draw_ball_center();
-	draw_player1_start_pos();
-	draw_player2_start_pos();
+	draw_ball();
+	draw_player1();
+	draw_player2();
 	
 	return;
 }
