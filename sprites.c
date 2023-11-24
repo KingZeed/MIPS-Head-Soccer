@@ -259,3 +259,5 @@ void draw_player2(int x, int y) {
 
     display_update();
 };
+
+
