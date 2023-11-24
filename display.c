@@ -18,7 +18,7 @@
 #define DISPLAY_RESET_MASK 0x200
 
 
-uint8_t oled_display[512];
+uint8_t oled_data[512];
 #define DISPLAY_LENGTH 128
 #define DISPLAY_HEIGHT 32
 char textbuffer[4][16];
