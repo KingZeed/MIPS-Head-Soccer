@@ -14,8 +14,8 @@ struct Player {
 };
 
 struct Ball ball = {0, 0, 0, 0};
-struct Player p1 = {0, 0, 0};
-struct Player p2 = {0, 0, 0};
+struct Player p1 = {0, 0, 1};
+struct Player p2 = {0, 0, 1};
 
 void display_init();
 
