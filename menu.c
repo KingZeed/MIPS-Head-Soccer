@@ -37,10 +37,6 @@ void main_menu(){
             display_string(3, "button 4");
         }
         
-
-
-
-
         if (get_switchtoggle(1)) {
             display_string(0, "switch 1");
             display_string(1, "");
@@ -67,9 +63,6 @@ void main_menu(){
 }
 
 
-void show_leaderboard() {
-
-}
 
 
 

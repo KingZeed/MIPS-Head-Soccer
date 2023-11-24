@@ -52,11 +52,7 @@ int main() {
 	setUp();
 	display_init();
 	display_clear();
-	draw_left_goal();
-	draw_right_goal();
-	draw_ball();
-	draw_player1();
-	draw_player2();
+	enter_name();
 	
 	return;
 }
