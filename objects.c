@@ -9,13 +9,7 @@ struct Ball {
     int acceleration;
 };
 
-struct Player1 {
-    int pos_x;
-    int pos_y;
-    int speed;
-};
-
-struct Player2 {
+struct Player {
     int pos_x;
     int pos_y;
     int speed;
