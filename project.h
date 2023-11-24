@@ -14,7 +14,7 @@ void string_update();
 
 void main_menu();
 
-int get_buttons();
+int get_button(int button_numbe);
 
-int get_switches();
+int get_switchtoggle(int switch_number);
 	
