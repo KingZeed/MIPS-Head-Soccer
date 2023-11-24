@@ -141,127 +141,121 @@ void draw_right_goal() {
 
 void draw_ball(int x, int y) {
     
-    display[13][59] = dot_color;
-    display[12][59] = dot_color;
-    display[11][59] = dot_color;
-
-    display[14][60] = dot_color;
-    display[13][60] = dot_color;
-    display[12][60] = dot_color;
-    display[11][60] = dot_color;
-    display[10][60] = dot_color;
-
-    display[9][61] = dot_color;
-    display[10][61] = dot_color;
-    display[11][61] = dot_color;
-    display[12][61] = dot_color;
-    display[13][61] = dot_color;
-    display[14][61] = dot_color;
-    display[15][61] = dot_color;
-
-    display[9][62] = dot_color;
-    display[10][62] = dot_color;
-    display[11][62] = dot_color;
-    display[12][62] = dot_color;
-    display[13][62] = dot_color;
-    display[14][62] = dot_color;
-    display[15][62] = dot_color;
-    
-    display[9][63] = dot_color;
-    display[10][63] = dot_color;
-    display[11][63] = dot_color;
-    display[12][63] = dot_color;
-    display[13][63] = dot_color;
-    display[14][63] = dot_color;
-    display[15][63] = dot_color;
-
-    display[14][64] = dot_color;
-    display[13][64] = dot_color;
-    display[12][64] = dot_color;
-    display[11][64] = dot_color;
-    display[10][64] = dot_color;
-
-    display[13][65] = dot_color;
-    display[12][65] = dot_color;
-    display[11][65] = dot_color;
+    display[13 + y][59 + x] = dot_color;
+    display[12 + y][59 + x] = dot_color;
+    display[11 + y][59 + x] = dot_color;
+    display[14 + y][60 + x] = dot_color;
+    display[13 + y][60 + x] = dot_color;
+    display[12 + y][60 + x] = dot_color;
+    display[11 + y][60 + x] = dot_color;
+    display[10 + y][60 + x] = dot_color;
+    display[9 + y][61 + x] = dot_color;
+    display[10 + y][61 + x] = dot_color;
+    display[11 + y][61 + x] = dot_color;
+    display[12 + y][61 + x] = dot_color;
+    display[13 + y][61 + x] = dot_color;
+    display[14 + y][61 + x] = dot_color;
+    display[15 + y][61 + x] = dot_color;
+    display[9 + y][62 + x] = dot_color;
+    display[10 + y][62 + x] = dot_color;
+    display[11 + y][62 + x] = dot_color;
+    display[12 + y][62 + x] = dot_color;
+    display[13 + y][62 + x] = dot_color;
+    display[14 + y][62 + x] = dot_color;
+    display[15 + y][62 + x] = dot_color;
+    display[9 + y][63 + x] = dot_color;
+    display[10 + y][63 + x] = dot_color;
+    display[11 + y][63 + x] = dot_color;
+    display[12 + y][63 + x] = dot_color;
+    display[13 + y][63 + x] = dot_color;
+    display[14 + y][63 + x] = dot_color;
+    display[15 + y][63 + x] = dot_color;
+    display[14 + y][64 + x] = dot_color;
+    display[13 + y][64 + x] = dot_color;
+    display[12 + y][64 + x] = dot_color;
+    display[11 + y][64 + x] = dot_color;
+    display[10 + y][64 + x] = dot_color;
+    display[13 + y][65 + x] = dot_color;
+    display[12 + y][65 + x] = dot_color;
+    display[11 + y][65 + x] = dot_color;
 
     display_update();
 };
 
-void draw_player1_start_pos() {
+void draw_player1(int x, int y) {
     
-    display[31][24] = dot_color;
-    display[30][24] = dot_color;
-    display[29][24] = dot_color;
-    display[28][24] = dot_color;
-    display[27][24] = dot_color;
-    display[26][24] = dot_color;
-    display[25][24] = dot_color;
-    display[24][24] = dot_color;
-    display[23][24] = dot_color;
-    display[23][25] = dot_color;
-    display[23][26] = dot_color;
-    display[23][27] = dot_color;
-    display[23][28] = dot_color;
-    display[23][29] = dot_color;
-    display[24][29] = dot_color;
-    display[25][29] = dot_color;
-    display[26][29] = dot_color;
-    display[27][29] = dot_color;
-    display[28][29] = dot_color;
-    display[29][29] = dot_color;
-    display[30][29] = dot_color;
-    display[31][29] = dot_color;
+    display[31 + y][24 + x] = dot_color;
+    display[30 + y][24 + x] = dot_color;
+    display[29 + y][24 + x] = dot_color;
+    display[28 + y][24 + x] = dot_color;
+    display[27 + y][24 + x] = dot_color;
+    display[26 + y][24 + x] = dot_color;
+    display[25 + y][24 + x] = dot_color;
+    display[24 + y][24 + x] = dot_color;
+    display[23 + y][24 + x] = dot_color;
+    display[23 + y][25 + x] = dot_color;
+    display[23 + y][26 + x] = dot_color;
+    display[23 + y][27 + x] = dot_color;
+    display[23 + y][28 + x] = dot_color;
+    display[23 + y][29 + x] = dot_color;
+    display[24 + y][29 + x] = dot_color;
+    display[25 + y][29 + x] = dot_color;
+    display[26 + y][29 + x] = dot_color;
+    display[27 + y][29 + x] = dot_color;
+    display[28 + y][29 + x] = dot_color;
+    display[29 + y][29 + x] = dot_color;
+    display[30 + y][29 + x] = dot_color;
+    display[31 + y][29 + x] = dot_color;
 
-    display[30][30] = dot_color;
-    display[30][31] = dot_color;
-    display[31][31] = dot_color;
+    display[30 + y][30 + x] = dot_color;
+    display[30 + y][31 + x] = dot_color;
+    display[31 + y][31 + x] = dot_color;
 
-    display[25][27] = dot_color;
+    display[25 + y][27 + x] = dot_color;
 
-    display[27][26] = dot_color;
-    display[28][26] = dot_color;
-    display[28][27] = dot_color;
-    display[28][28] = dot_color;
+    display[27 + y][26 + x] = dot_color;
+    display[28 + y][26 + x] = dot_color;
+    display[28 + y][27 + x] = dot_color;
+    display[28 + y][28 + x] = dot_color;
 
     display_update();
 };
 
-void draw_player2() {
+void draw_player2(int x, int y) {
     
-    display[31][103] = dot_color;
-    display[30][103] = dot_color;
-    display[29][103] = dot_color;
-    display[28][103] = dot_color;
-    display[27][103] = dot_color;
-    display[26][103] = dot_color;
-    display[25][103] = dot_color;
-    display[24][103] = dot_color;
-    display[23][103] = dot_color;
-    display[23][102] = dot_color;
-    display[23][101] = dot_color;
-    display[23][100] = dot_color;
-    display[23][99] = dot_color;
-    display[23][98] = dot_color;
-    display[24][98] = dot_color;
-    display[25][98] = dot_color;
-    display[26][98] = dot_color;
-    display[27][98] = dot_color;
-    display[28][98] = dot_color;
-    display[29][98] = dot_color;
-    display[30][98] = dot_color;
-    display[31][98] = dot_color;
+    display[31 + y][103 + x] = dot_color;
+    display[30 + y][103 + x] = dot_color;
+    display[29 + y][103 + x] = dot_color;
+    display[28 + y][103 + x] = dot_color;
+    display[27 + y][103 + x] = dot_color;
+    display[26 + y][103 + x] = dot_color;
+    display[25 + y][103 + x] = dot_color;
+    display[24 + y][103 + x] = dot_color;
+    display[23 + y][103 + x] = dot_color;
+    display[23 + y][102 + x] = dot_color;
+    display[23 + y][101 + x] = dot_color;
+    display[23 + y][100 + x] = dot_color;
+    display[23 + y][99 + x] = dot_color;
+    display[23 + y][98 + x] = dot_color;
+    display[24 + y][98 + x] = dot_color;
+    display[25 + y][98 + x] = dot_color;
+    display[26 + y][98 + x] = dot_color;
+    display[27 + y][98 + x] = dot_color;
+    display[28 + y][98 + x] = dot_color;
+    display[29 + y][98 + x] = dot_color;
+    display[30 + y][98 + x] = dot_color;
+    display[31 + y][98 + x] = dot_color;
 
-    display[30][97] = dot_color;
-    display[30][96] = dot_color;
-    display[31][96] = dot_color;
+    display[30 + y][97 + x] = dot_color;
+    display[30 + y][96 + x] = dot_color;
+    display[31 + y][96 + x] = dot_color;
 
-    display[25][100] = dot_color;
+    display[25 + y][100 + x] = dot_color;
 
-    display[27][101] = dot_color;
-    display[28][101] = dot_color;
-    display[28][100] = dot_color;
-    display[28][99] = dot_color;
+    display[27 + y][101 + x] = dot_color;
+    display[28 + y][101 + x] = dot_color;
+    display[28 + y][100 + x] = dot_color;
+    display[28 + y][99 + x] = dot_color;
 
     display_update();
 };
