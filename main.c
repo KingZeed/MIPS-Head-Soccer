@@ -49,15 +49,19 @@ void setUp(){
 
 
 int main() {
-	
 	setUp();
 	display_init();
-	display_clear();
-	draw_left_goal();
-	draw_right_goal();
-	draw_ball();
-	draw_player1();
-	draw_player2();
+	while (1) {
+		display_clear();
+		draw_left_goal();
+		draw_right_goal();
+		draw_ball(ball.pos_x, ball.pos_y);
+		draw_player1(p1.pos_x, p1.pos_y);
+		draw_player2(p2.pos_x, p2.pos_y);
+		check_movement();
+		delay(9000);
+	}
+	
 	
 	return;
 }

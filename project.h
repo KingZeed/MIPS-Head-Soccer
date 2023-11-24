@@ -13,9 +13,10 @@ struct Player {
     int speed;
 };
 
-struct Ball ball = {0, 0, 0, 0};
-struct Player p1 = {0, 0, 1};
-struct Player p2 = {0, 0, 1};
+extern struct Player p1;
+extern struct Player p2;
+extern struct Ball ball;
+
 
 void display_init();
 
