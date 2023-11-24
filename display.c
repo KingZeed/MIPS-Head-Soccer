@@ -17,11 +17,10 @@
 #define DISPLAY_RESET_PORT PORTG
 #define DISPLAY_RESET_MASK 0x200
 
+
+uint8_t oled_display[512];
 #define DISPLAY_LENGTH 128
 #define DISPLAY_HEIGHT 32
-
-
-uint8_t oled_data[512]; // bytes representing pixels that we send to the oled
 char textbuffer[4][16];
 
 /* From lab */
