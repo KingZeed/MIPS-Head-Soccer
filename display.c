@@ -1,6 +1,6 @@
 #include <pic32mx.h>
 #include <stdint.h>
-#include "project.h"
+#include   "project.h"
 
 
 #define DISPLAY_VDD PORTFbits.RF6
@@ -19,8 +19,11 @@
 
 
 uint8_t oled_display[512];
+#define DISPLAY_LENGTH 128
+#define DISPLAY_HEIGHT 32
 char textbuffer[4][16];
 
+/* From lab */
 static const uint8_t const font[] = {
 	0, 0, 0, 0, 0, 0, 0, 0,
 	0, 0, 0, 0, 0, 0, 0, 0,
@@ -152,6 +155,7 @@ static const uint8_t const font[] = {
 	0, 120, 68, 66, 68, 120, 0, 0,
 };
 
+/* From lab */
 void display_string(int line, char *s) {
 	int i;
 	if(line < 0 || line >= 4)
@@ -167,7 +171,8 @@ void display_string(int line, char *s) {
 			textbuffer[line][i] = ' ';
 }
 
- void string_update() {
+/* From lab */
+void string_update() {
 	int i, j, k;
 	int c;
 	for(i = 0; i < 4; i++) {
@@ -191,11 +196,13 @@ void display_string(int line, char *s) {
 	}
 }
 
+/* From lab */
 void delay(int cyc) {
 	int i;
 	for(i = cyc; i > 0; i--);
 }
 
+/* From lab */
 void spi_send_recv(uint8_t data) {
 	while(!(SPI2STAT & 0x08));
 	SPI2BUF = data;
@@ -203,6 +210,7 @@ void spi_send_recv(uint8_t data) {
 	return SPI2BUF;
 }
 
+/* From lab */
 void display_init() {	 
 	DISPLAY_COMMAND_DATA_PORT &= ~DISPLAY_COMMAND_DATA_MASK; // Clear OLED data/command select
 	delay(10);
@@ -242,6 +250,7 @@ void display_init() {
 	spi_send_recv(0xAF);
 }
 
+/* From lab */
 void display_image(const uint8_t *data) {
 	int i, j;
 	
@@ -255,50 +264,54 @@ void display_image(const uint8_t *data) {
 		
 		DISPLAY_COMMAND_DATA_PORT |= DISPLAY_COMMAND_DATA_MASK;
 		
-		for(j = 0; j < 128; j++)
-			spi_send_recv(data[i*128 + j]);
+		for(j = 0; j < DISPLAY_LENGTH; j++)
+			spi_send_recv(data[i*DISPLAY_LENGTH + j]);
 	}
 	
 }
 
+/* Translate the display coordinate system to the oled_data */
 void translate_to_oled(){
 
 	int page, column, memory_row;
-	uint8_t oled_byte = 0;
+	uint8_t oled_byte = 0; // The byte we will add to oled_data
 	
+	// Iterate through the display coordinate system
+	// The oled_data will be read through page 0 - 3
 	for(page = 0; page < 4; page++){
 
-		for(column = 0; column < 128; column++) {
+		for(column = 0; column < DISPLAY_LENGTH; column++) {
 			oled_byte = 0;
 
 			for(memory_row = 0; memory_row < 8; memory_row++){
 				if(display[8 * page + memory_row][column]){
-					oled_byte |= (1 << memory_row);
+					oled_byte |= (1 << memory_row); // change the byte everytime a pixel is on
 				}
 				
 			}
-			oled_display[page*128 + column] = oled_byte;
+			oled_data[page*DISPLAY_LENGTH + column] = oled_byte;
 		}
 		
 	}
 
 }
 
+/* Makes the screen black */
 void display_clear() {
     int row, column, i;
 
-	for(row = 0; row < 32; row++) {
-		for(column = 0; column < 128; column++) {
+	for(row = 0; row < DISPLAY_HEIGHT; row++) {
+		for(column = 0; column < DISPLAY_LENGTH; column++) {
 		display[row][column] = 0;
 		}
 	}
 	translate_to_oled();
-	display_image(oled_display);
+	display_image(oled_data);
 }
 
 void display_update(){
 	translate_to_oled();
-	display_image(oled_display);
+	display_image(oled_data);
 }
 
 void display_dots() {

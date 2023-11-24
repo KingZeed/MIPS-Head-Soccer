@@ -1,4 +1,4 @@
-uint8_t display[32][128];		// Readable for humans
+uint8_t display[32][128]; // pixel coordinate system
 
 void display_init();
 
@@ -23,4 +23,9 @@ void draw_ball_center();
 void draw_player1_start_pos();
 
 void draw_player2_start_pos();
+
+int get_button(int button_numbe);
+
+int get_switchtoggle(int switch_number);
+
 	
