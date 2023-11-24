@@ -1,6 +1,6 @@
 #include <pic32mx.h>
 #include <stdint.h>
-#include   "project.h"
+#include "project.h"
 
 
 #define DISPLAY_VDD PORTFbits.RF6
