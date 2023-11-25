@@ -26,4 +26,4 @@ int get_switchtoggle(int switch_number);
 
 void show_leaderboard();
 
-void enter_name();
+void enter_name(int points);

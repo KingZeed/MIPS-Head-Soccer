@@ -52,7 +52,7 @@ int main() {
 	setUp();
 	display_init();
 	display_clear();
-	enter_name();
+	enter_name(100);
 	
 	return;
 }
