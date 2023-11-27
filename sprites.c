@@ -69,7 +69,6 @@ void draw_left_goal() {
     display[30][17] = dot_color;
     display[31][17] = dot_color;
 
-    display_update();
 };
 
 void draw_right_goal() {
@@ -136,7 +135,6 @@ void draw_right_goal() {
     display[30][110] = dot_color;
     display[31][110] = dot_color;
 
-    display_update();
 };
 
 void draw_ball(int x, int y) {
@@ -179,7 +177,6 @@ void draw_ball(int x, int y) {
     display[12 + y][65 + x] = dot_color;
     display[11 + y][65 + x] = dot_color;
 
-    display_update();
 };
 
 void draw_player1(int x, int y) {
@@ -217,8 +214,6 @@ void draw_player1(int x, int y) {
     display[28 + y][26 + x] = dot_color;
     display[28 + y][27 + x] = dot_color;
     display[28 + y][28 + x] = dot_color;
-
-    display_update();
 };
 
 void draw_player2(int x, int y) {
@@ -257,7 +252,6 @@ void draw_player2(int x, int y) {
     display[28 + y][100 + x] = dot_color;
     display[28 + y][99 + x] = dot_color;
 
-    display_update();
 };
 
 

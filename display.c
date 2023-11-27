@@ -305,8 +305,7 @@ void display_clear() {
 		display[row][column] = 0;
 		}
 	}
-	translate_to_oled();
-	display_image(oled_data);
+	
 }
 
 void display_update(){

@@ -44,40 +44,11 @@ void move_player_left(int player_number) {
 
 void jump_player(int player_number) {
     if (player_number == 1) {
-        switch(p1.pos_y) {
-        case 0:
-            p1.pos_y -= p1.speed;
-        break;
-        case -1:
-            p1.pos_y -= p1.speed;
-        break;
-        case -2:
-            p1.pos_y -= p1.speed;
-        break;
-        case -3:
-            p1.pos_y -= p1.speed;
-        break;
-        case -4:
-            p1.pos_y -= p1.speed;
-        break;
-        case -5:
-            p1.pos_y -= p1.speed;
-        break;
-        case -6:
-            p1.pos_y -= p1.speed;
-        break;
-        case -7:
-            p1.pos_y -= p1.speed;
-        break;
-        case -8:
-            p1.pos_y -= p1.speed;
-        break;
-        case -9:
-            p1.pos_y -= p1.speed;
-        break;
-        case -10:
+        if (p1.pos_y <= -10) {
             p1.pos_y = 0;
-        break;
+        }
+        if (p1.pos_y <= 0) {
+            p1.pos_y--;
         }
     }
    
