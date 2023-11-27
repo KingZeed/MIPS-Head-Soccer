@@ -52,6 +52,7 @@ int main() {
 	setUp();
 	display_init();
 	display_clear();
+	setup_lists();
 	enter_name(100);
 	
 	return;
