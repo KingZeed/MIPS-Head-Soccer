@@ -19,6 +19,7 @@ extern struct Player p1;
 extern struct Player p2;
 extern struct Ball ball;
 
+void delay(int cyc);
 
 void display_init();
 
@@ -46,6 +47,12 @@ void draw_player2(int x, int y);
 
 int get_button(int button_number);
 
+int get_button(int button_number);
+
 int get_switchtoggle(int switch_number);
 
-	
+void show_leaderboard();
+
+void enter_name(int points);
+
+void setup_lists();
