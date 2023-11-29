@@ -68,21 +68,22 @@ void show_leaderboard() {
         string_update();
         // Go down in leaderboard 
         if (get_button(1) && line != 5) { 
+            while (get_button(1)){}
             line++;
             update_leaderboardlist(line);  
         }
         // Go upp in leaderboard 
         if (get_button(2) && line != 0) {
+            while (get_button(2)){}
             line--;
             update_leaderboardlist(line);
         }
         if (get_button(3)) {
             while (get_button(3)){}
+            main_menu();
             
-            enter_name(300);
         }
-        // scrollingspeed
-        delay(500000);
+       
     }
     
 }
