@@ -3,7 +3,7 @@
 #include "project.h"
 
 char leaderboard_list[9][10];
-char alphabet[25];
+char alphabet[26];
 
 /* Clear all  strings in display */
 void clear_displaytext() {
@@ -42,7 +42,7 @@ void setup_lists() {
     clear_leaderboardlist();
     int i;
     // Insert letters in alphabet 
-    for(i = 0; i < 25; i++){
+    for(i = 0; i < 26; i++){
         alphabet[i] = 65+i;
     }
 }
@@ -77,10 +77,7 @@ void show_leaderboard() {
             update_leaderboardlist(line);
         }
         if (get_button(3)) {
-            while (get_button(3))
-            {
-                
-            }
+            while (get_button(3)){}
             
             enter_name(300);
         }
@@ -201,17 +198,28 @@ void enter_name(int points){
             save_name(points, name);
             delay(50000);
         }
-        else if(get_button(1) && alphabet_pos != 25 && name_pos < 3){
+        else if(get_button(1) && name_pos < 3){
             while (get_button(1)){}
-            alphabet_pos++;
+            if (alphabet_pos == 25){
+                alphabet_pos = 0;
+            }
+            else {
+                alphabet_pos++;
+            }
             name[name_pos] = alphabet[alphabet_pos];
             display_string(3, name);
             string_update();
             delay(50000);
         }
-        else if(get_button(2) && alphabet_pos != 0 && name_pos < 3){
+        else if(get_button(2) && name_pos < 3){
             while (get_button(2)){}
-            alphabet_pos--;
+            if (alphabet_pos == 0){
+                alphabet_pos = 25;
+            }
+            else {
+                alphabet_pos--;
+            }
+            
             name[name_pos] = alphabet[alphabet_pos];
             display_string(3, name);
             string_update();
@@ -235,7 +243,21 @@ void enter_name(int points){
 
 }
 
+int check_leaderboard(int points) {
+        char score[3];
+        int_to_char(points, score);
 
+        int sum = 0;
+        sum += score[0] * 100;
+        sum += score[1] * 10;
+        sum += score[2];
+
+        if(sum > list_points(leaderboard_list[8])) {
+            return 1;
+        }
+        return 0;
+        
+}
 
 
 
