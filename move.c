@@ -2,9 +2,9 @@
 #include <stdint.h>
 #include "project.h"
 
-struct Player p1 = {0, 0, 1};
-struct Player p2 = {0, 0, 1};
-struct Ball ball = {0, 0, 0, 0};
+struct Player p1 = {24, 31, 1};
+struct Player p2 = {103, 31, 1};
+struct Ball ball = {12, 60, 0, 0};
 
 void check_movement() {
     if (get_button(4)) {
