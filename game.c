@@ -4,16 +4,32 @@
 
 
 void singleplayer(){
-    while(1){
-
+    clear_displaytext();
+    display_string(0, "Singleplayer");
+    display_string(1, "Work in progress");
+    display_string(2, "Startscreen (1)");
+    while(1) {
+        string_update();
+        if (get_button(1)) {
+            while (get_button(1)) {}
+            startscreen();
+        }
     }
 }
 
 
 
-void multieplayer(){
-    while(1){
-        /* multplayer here */
+void multiplayer(){
+    clear_displaytext();
+    display_string(0, "Multiplayer");
+    display_string(1, "Work in progress");
+    display_string(2, "Startscreen (1)");
+    while(1) {
+        string_update();
+        if (get_button(1)) {
+            while (get_button(1)) {}
+            startscreen();
+        }
     }
 }
 

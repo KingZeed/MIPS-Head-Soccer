@@ -11,6 +11,7 @@ void clear_displaytext() {
     display_string(1, " ");
     display_string(2, " ");
     display_string(3, " ");
+    string_update();
 }
 
 /* Resetting and setup leaderboard */
@@ -80,7 +81,7 @@ void show_leaderboard() {
         }
         if (get_button(3)) {
             while (get_button(3)){}
-            main_menu();
+            startscreen();
             
         }
        
