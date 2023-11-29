@@ -38,19 +38,19 @@ void check_movement() {
 }
 
 void move_player_right(int player_number) {
-    if (player_number == 1) {
+    if (player_number == 1 && p1.pos_x <= 119) {
         p1.pos_x += p1.speed;
     }
-    else if (player_number == 2) {
+    else if (player_number == 2 && p2.pos_x <= 126) {
         p2.pos_x += p2.speed;
     }
 }
 
 void move_player_left(int player_number) {
-    if (player_number == 1) {
+    if (player_number == 1 && p1.pos_x >= 1) {
         p1.pos_x -= p1.speed;
     }
-    else if (player_number == 2) {
+    else if (player_number == 2 && p2.pos_x >= 8) {
         p2.pos_x -= p2.speed;
     }
 }
