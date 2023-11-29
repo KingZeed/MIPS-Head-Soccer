@@ -1,6 +1,6 @@
 #include <pic32mx.h>
 #include <stdint.h>
-#include   "project.h"
+#include "project.h"
 
 
 #define DISPLAY_VDD PORTFbits.RF6
@@ -305,8 +305,7 @@ void display_clear() {
 		display[row][column] = 0;
 		}
 	}
-	translate_to_oled();
-	display_image(oled_data);
+	
 }
 
 void display_update(){
