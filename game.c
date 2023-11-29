@@ -5,9 +5,11 @@
 
 void singleplayer(){
     while(1){
-        /* Game here I guess */
+
     }
 }
+
+
 
 void multieplayer(){
     while(1){
