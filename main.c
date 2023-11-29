@@ -60,7 +60,7 @@ int main() {
 		draw_player2(p2.pos_x, p2.pos_y);
 		check_movement();
 		display_update();
-		delay(70000);
+		delay(100000);
 	}
 	
 	

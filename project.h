@@ -11,6 +11,8 @@ struct Player {
     int pos_x;
     int pos_y;
     int speed;
+    int rising;
+    int jumping;
 };
 
 extern struct Player p1;
