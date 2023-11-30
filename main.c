@@ -53,6 +53,7 @@ int main() {
 	display_init();
 	display_clear();
 	setup_lists();
+	main_menu();
 	
 	
 	return;

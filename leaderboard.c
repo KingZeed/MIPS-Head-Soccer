@@ -40,6 +40,7 @@ void clear_leaderboardlist() {
 void setup_lists() {
     clear_displaytext();
     clear_leaderboardlist();
+    sort_leaderboard();
     int i;
     // Insert letters in alphabet 
     for(i = 0; i < 26; i++){
