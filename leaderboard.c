@@ -11,6 +11,7 @@ void clear_displaytext() {
     display_string(1, " ");
     display_string(2, " ");
     display_string(3, " ");
+    string_update();
 }
 
 /* Resetting and setup leaderboard */
@@ -40,6 +41,7 @@ void clear_leaderboardlist() {
 void setup_lists() {
     clear_displaytext();
     clear_leaderboardlist();
+    sort_leaderboard();
     int i;
     // Insert letters in alphabet 
     for(i = 0; i < 26; i++){
@@ -80,7 +82,7 @@ void show_leaderboard() {
         }
         if (get_button(3)) {
             while (get_button(3)){}
-            main_menu();
+            startscreen();
             
         }
        

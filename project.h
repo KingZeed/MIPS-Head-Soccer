@@ -56,3 +56,11 @@ void show_leaderboard();
 void enter_name(int points);
 
 void setup_lists();
+
+void startscreen();
+
+void clear_displaytext();
+
+void multiplayer();
+
+void singleplayer();
