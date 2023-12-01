@@ -20,12 +20,12 @@ void check_barriar_collision() {
 
     if (ball.pos_x + BALL_RADIUS >= DISPLAY_WIDTH) {
         ball.pos_x = 126 - BALL_RADIUS;
-        ball.speed_x *= -bounce_ground; 
+        ball.speed_x *= -1; 
     }
 
     if (ball.pos_x - BALL_RADIUS <= 0 ) {
         ball.pos_x = 0 + BALL_RADIUS;
-        ball.speed_x *= -bounce_ground; 
+        ball.speed_x *= -1; 
     }
     shoot();
 }
@@ -48,6 +48,12 @@ void move_ball() {
     ball.pos_y += (int)ball.speed_y;
 
     ball.speed_y += gravity;
+    if (ball.speed_x > 0) {
+        ball.speed_x -= friction;
+    }
+    if (ball.speed_x < 0) {
+        ball.speed_x += friction;
+    }
     
    
 }

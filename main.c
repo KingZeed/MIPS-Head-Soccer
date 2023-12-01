@@ -56,22 +56,6 @@ int main() {
 	setup_lists();
 	display_clear();
 	startscreen();
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 	
 	return;
 }
