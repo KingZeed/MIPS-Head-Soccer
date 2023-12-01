@@ -77,3 +77,5 @@ void clear_displaytext();
 void multiplayer();
 
 void singleplayer();
+
+void check_player_collision();

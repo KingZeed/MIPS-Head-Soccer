@@ -4,9 +4,13 @@
 
 struct Player p1 = {24, 31, 1, 0, 0};
 struct Player p2 = {103, 31, 1, 0, 0};
-struct Ball ball = {60, 12, 2, -1};
+
+
 int right = 0;
 int left = 1;
+
+struct Ball ball = {63, 12, 2, -1};
+
 
 void check_movement() {
     if (get_button(4)) {
@@ -40,7 +44,7 @@ void check_movement() {
 }
 
 void move_player_right(int player_number) {
-    if (player_number == 1 && p1.pos_x <= 119) {
+    if (player_number == 1 && p1.pos_x <= 55) {
         p1.pos_x += p1.speed;
     }
     else if (player_number == 2 && p2.pos_x <= 126) {
@@ -52,7 +56,7 @@ void move_player_left(int player_number) {
     if (player_number == 1 && p1.pos_x >= 1) {
         p1.pos_x -= p1.speed;
     }
-    else if (player_number == 2 && p2.pos_x >= 8) {
+    else if (player_number == 2 && p2.pos_x >= 72) {
         p2.pos_x -= p2.speed;
     }
 }

@@ -9,10 +9,10 @@ void setUp(){
 	// OSCCON |= 0x080000;
 	
 	/* Set up output pins */
-	// AD1PCFG = 0xFFFF;
-	// ODCE = 0x0;
-	// TRISECLR = 0xFF;
-	// PORTE = 0x0;
+	AD1PCFG = 0xFFFF;
+	ODCE = 0x0;
+	TRISECLR = 0xFF;
+	PORTE = 0x0;
 	
 	/* Output pins for display signals */
 	PORTF = 0xFFFF;
@@ -21,10 +21,12 @@ void setUp(){
 	ODCG = 0x0;
 	TRISFCLR = 0x70;
 	TRISGCLR = 0x200;
+
+	TRISE &= ~0xff;
 	
 	/* Set up input pins */
-	// TRISDSET = (1 << 8);
-	// TRISFSET = (1 << 1);
+	TRISDSET = (1 << 8);
+	TRISFSET = (1 << 1);
 
 
 	/* Set button & switches input pins */
@@ -54,7 +56,21 @@ int main() {
 	setup_lists();
 	display_clear();
 	startscreen();
+
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 	return;
