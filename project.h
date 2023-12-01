@@ -28,11 +28,9 @@ extern struct Ball ball;
 
 void delay(int cyc);
 
-void check_collision();
+void check_barriar_collision();
 
 void move_ball();
-
-void check_ground_collision();
 
 void display_init();
 
