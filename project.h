@@ -1,10 +1,17 @@
+#define BALL_RADIUS 3
+#define PLAYER_HEIGHT 9
+#define PLAYER_WEIGHT 6
+#define DISPLAY_WIDTH 127
+#define DISPLAY_HEIGHT 31
+
+
 uint8_t display[32][128]; // pixel coordinate system
 
 struct Ball {
     int pos_x;
     int pos_y;
-    int speed;
-    int acceleration;
+    double speed_x;
+    double speed_y;
 };
 
 struct Player {
@@ -20,6 +27,10 @@ extern struct Player p2;
 extern struct Ball ball;
 
 void delay(int cyc);
+
+void check_barriar_collision();
+
+void move_ball();
 
 void display_init();
 
