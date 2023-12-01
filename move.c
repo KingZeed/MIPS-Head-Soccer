@@ -5,6 +5,8 @@
 struct Player p1 = {24, 31, 1, 0, 0};
 struct Player p2 = {103, 31, 1, 0, 0};
 struct Ball ball = {60, 12, 2, -1};
+int right = 0;
+int left = 1;
 
 void check_movement() {
     if (get_button(4)) {
@@ -121,3 +123,88 @@ void jump_player(int player_number) {
    
 }
 
+void hardbot_thinking() {
+    // ball is not on bot side
+    if(ball.pos_y < 25 && p2.pos_y == 31){
+        start_jump(2);
+    }
+
+    if(ball.pos_x < (DISPLAY_WIDTH/2)){
+
+        if(p2.pos_x < 80) {
+            
+            right = 1;
+            left = 0;
+        }
+        if (p2.pos_x > 105) {
+            
+            right = 0;
+            left = 1;
+        }
+
+        if(right){
+            move_player_right(2);
+        }
+
+        if(left){
+            move_player_left(2);
+        }
+        
+    }
+
+    if(ball.pos_x > (DISPLAY_WIDTH/2) && p2.pos_x < (DISPLAY_WIDTH/2) - 10){
+        move_player_left(2);
+    }
+
+    // ball is on bot side
+
+   if(ball.pos_x > (DISPLAY_WIDTH/2) && ball.pos_x < p2.pos_x){
+        move_player_left(2);
+    }
+
+    if(ball.pos_x > (DISPLAY_WIDTH/2) && ball.pos_x > p2.pos_x){
+        move_player_right(2);
+    }
+}
+
+void easybot_thinking() {
+    // ball is not on bot side
+    if(ball.pos_y < 10 && p2.pos_y == 31){
+        start_jump(2);
+    }
+
+    if(ball.pos_x < (DISPLAY_WIDTH/2)){
+
+        if(p2.pos_x < 80) {
+            
+            right = 1;
+            left = 0;
+        }
+        if (p2.pos_x > 105) {
+            
+            right = 0;
+            left = 1;
+        }
+
+        if(right){
+            start_jump(2);
+        }
+        if(left){
+            move_player_left(2);
+        }
+        
+    }
+
+    if(ball.pos_x > (DISPLAY_WIDTH/2) && p2.pos_x < (DISPLAY_WIDTH/2) - 10){
+        move_player_left(2);
+    }
+    // ball is on bot side
+    if(ball.pos_x > (DISPLAY_WIDTH/2) && ball.pos_x < p2.pos_x){
+        move_player_left(2);
+    }
+
+    if(ball.pos_x > (DISPLAY_WIDTH/2) && ball.pos_x > p2.pos_x){
+        move_player_right(2);
+    }
+
+}

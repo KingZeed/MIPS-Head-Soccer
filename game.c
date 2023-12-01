@@ -3,7 +3,7 @@
 #include "project.h"
 
 
-void singleplayer(){
+/* void singleplayer(){
     clear_displaytext();
     display_string(0, "Singleplayer");
     display_string(1, "Work in progress");
@@ -15,8 +15,27 @@ void singleplayer(){
             startscreen();
         }
     }
-}
+} */
 
+void singleplayer() {
+
+    while (1) {
+        display_clear();
+        draw_left_goal();
+        draw_right_goal();
+        draw_ball(ball.pos_x, ball.pos_y);
+        draw_player1(p1.pos_x, p1.pos_y);
+        draw_player2(p2.pos_x, p2.pos_y);
+        check_barriar_collision();
+        move_ball();
+        hardbot_thinking();
+
+        check_movement();
+        
+        display_update();
+        delay(100000);
+        }
+}
 
 
 void multiplayer(){
