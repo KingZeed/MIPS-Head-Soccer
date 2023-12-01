@@ -78,4 +78,4 @@ void multiplayer();
 
 void singleplayer();
 
-void check_player_collision();
+void check_player_ball_collision();

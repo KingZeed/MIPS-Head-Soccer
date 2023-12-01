@@ -85,7 +85,7 @@ singleplayer_game_loop() {
         hardbot_thinking();
 
         check_movement();
-        check_player_collision();
+        check_player_ball_collision();
         
         display_update();
         delay(100000);

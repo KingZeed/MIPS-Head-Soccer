@@ -57,3 +57,7 @@ void move_ball() {
     
    
 }
+
+void check_player_ball_collision() {
+    
+}
