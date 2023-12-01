@@ -66,6 +66,10 @@ int get_switchtoggle(int switch_number);
 
 void show_leaderboard();
 
+int check_leaderboard(int points);
+
+void int_to_char(int points, char *score);
+
 void enter_name(int points);
 
 void setup_lists();
@@ -78,4 +82,6 @@ void multiplayer();
 
 void singleplayer();
 
-void check_player_collision();
+void goal(int player);
+
+void reset_pos(int player);

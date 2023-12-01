@@ -9,7 +9,7 @@ struct Player p2 = {103, 31, 1, 0, 0};
 int right = 0;
 int left = 1;
 
-struct Ball ball = {63, 12, 2, -1};
+struct Ball ball = {63, 12, -2, -1};
 
 
 void check_movement() {
@@ -159,7 +159,7 @@ void hardbot_thinking() {
     if(ball.pos_x > (DISPLAY_WIDTH/2) && p2.pos_x < (DISPLAY_WIDTH/2) - 10){
         move_player_left(2);
     }
-
+    
     // ball is on bot side
 
    if(ball.pos_x > (DISPLAY_WIDTH/2) && ball.pos_x < p2.pos_x){
@@ -211,4 +211,27 @@ void easybot_thinking() {
         move_player_right(2);
     }
 
+}
+
+void reset_pos(int player){
+    
+    p1.pos_x = 24;
+    p1.pos_y = 31;
+
+    p2.pos_x = 103;
+    p2.pos_y = 31;
+
+    right = 0;
+    left = 1;
+
+    ball.pos_x = 63;
+    ball.pos_y = 12;
+    if(player == 1){
+        ball.speed_x = -2;
+    }
+    else {
+        ball.speed_x = 2;
+    }
+    
+    ball.speed_y = -1;
 }

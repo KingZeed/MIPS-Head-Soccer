@@ -6,7 +6,25 @@ double bounce_ground = 0.8;
 double gravity = 0.05;
 double friction = 0.001;
 
+void check_crossbar_collision() {
+    if(ball.pos_y + BALL_RADIUS <= 11){
+        ball.pos_x *= -1;
+    }
+}
+
+void check_goal() {
+    if (ball.pos_x <= 13 && ball.pos_y > 10) {
+        goal(2);
+    }
+
+    if (ball.pos_x >= 116 && ball.pos_y > 10) {
+        goal(1);
+    }
+}
+
 void check_barriar_collision() {
+    check_goal();
+    check_crossbar_collision();
     if(ball.pos_y + BALL_RADIUS >= DISPLAY_HEIGHT){
         ball.pos_y = DISPLAY_HEIGHT - BALL_RADIUS;
         ball.speed_y *= -bounce_ground;   
@@ -27,7 +45,6 @@ void check_barriar_collision() {
         ball.pos_x = 0 + BALL_RADIUS;
         ball.speed_x *= -1; 
     }
-    shoot();
 }
 
 
@@ -55,5 +72,4 @@ void move_ball() {
         ball.speed_x += friction;
     }
     
-   
 }

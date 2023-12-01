@@ -255,10 +255,14 @@ int check_leaderboard(int points) {
         sum += score[1] * 10;
         sum += score[2];
 
-        if(sum > list_points(leaderboard_list[8])) {
+        int min_points =list_points(leaderboard_list[8]);
+        if(sum > min_points) {
             return 1;
         }
-        return 0;
+        else {
+            return 0;
+        }
+        
         
 }
 
