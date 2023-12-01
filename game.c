@@ -66,7 +66,6 @@ multiplayer_game_loop() {
 		draw_player1(p1.pos_x, p1.pos_y);
 		draw_player2(p2.pos_x, p2.pos_y);
 		check_movement();
-        check_player_collision();
 		display_update();
         delay(100000);
 	}
@@ -81,14 +80,15 @@ singleplayer_game_loop() {
         draw_player1(p1.pos_x, p1.pos_y);
         draw_player2(p2.pos_x, p2.pos_y);
         check_barriar_collision();
-        move_ball();
         hardbot_thinking();
 
         check_movement();
-        check_player_collision();
+        move_ball();
+        check_player1_ball_collision();
+        check_player2_ball_collision();
         
         display_update();
-        delay(100000);
+        delay(110000);
         }
 }
 
