@@ -9,10 +9,10 @@ void setUp(){
 	// OSCCON |= 0x080000;
 	
 	/* Set up output pins */
-	// AD1PCFG = 0xFFFF;
-	// ODCE = 0x0;
-	// TRISECLR = 0xFF;
-	// PORTE = 0x0;
+	AD1PCFG = 0xFFFF;
+	ODCE = 0x0;
+	TRISECLR = 0xFF;
+	PORTE = 0x0;
 	
 	/* Output pins for display signals */
 	PORTF = 0xFFFF;
@@ -21,10 +21,12 @@ void setUp(){
 	ODCG = 0x0;
 	TRISFCLR = 0x70;
 	TRISGCLR = 0x200;
+
+	TRISE &= ~0xff;
 	
 	/* Set up input pins */
-	// TRISDSET = (1 << 8);
-	// TRISFSET = (1 << 1);
+	TRISDSET = (1 << 8);
+	TRISFSET = (1 << 1);
 
 
 	/* Set button & switches input pins */
@@ -51,25 +53,20 @@ void setUp(){
 int main() {
 	setUp();
 	display_init();
-	// setup_lists();
-	// display_clear();
-	// startscreen();
-	while (1) {
-		display_clear();
-		draw_left_goal();
-		draw_right_goal();
-		draw_ball(ball.pos_x, ball.pos_y);
-		draw_player1(p1.pos_x, p1.pos_y);
-		draw_player2(p2.pos_x, p2.pos_y);
-		check_barriar_collision();
-		move_ball();
-
-		
-
-		check_movement();
-		display_update();
-		delay(100000);
-	}
+	setup_lists();
+	display_clear();
+	startscreen();
+	// while (1) {
+	// 	display_clear();
+	// 	draw_left_goal();
+	// 	draw_right_goal();
+	// 	draw_ball(ball.pos_x, ball.pos_y);
+	// 	draw_player1(p1.pos_x, p1.pos_y);
+	// 	draw_player2(p2.pos_x, p2.pos_y);
+	// 	check_movement();
+	// 	display_update();
+	// 	delay(100000);
+	// }
 	
 	
 	return;
