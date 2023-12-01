@@ -2,9 +2,11 @@
 #include <stdint.h>
 #include "project.h"
 
-double bounce_ground = 0.8;
+#define MAX_BALL_SPEED 4 
+
+double bounce_ground = 0.85;
 double gravity = 0.05;
-double friction = 0.001;
+double friction = 0.003;
 
 void check_crossbar_collision() {
     if(ball.pos_y + BALL_RADIUS <= 11){
@@ -49,13 +51,64 @@ void check_barriar_collision() {
 
 
 void shoot(){
-    if(get_switchtoggle(1)){
-        ball.speed_x += 0.1;
-        ball.speed_y -= 0.2;  
+        if (ball.speed_x < 0) {
+            ball.pos_x += 3;
+        }
+        if (ball.speed_x > 0) {
+            ball.pos_x -= 3;
+        }
+        ball.speed_x *= -2;
+        ball.speed_y = -2;  
+}
+
+void bounce_player() {
+    if (ball.speed_x < 0) {
+            ball.pos_x += 3;
+        }
+    if (ball.speed_x > 0) {
+        ball.pos_x -= 3;
     }
+    ball.speed_x *= -1.4;
+}
+
+void head_player() {
+    if (ball.speed_x < 0) {
+        ball.pos_x += 3;
+    }
+    if (ball.speed_x > 0) {
+        ball.pos_x -= 3;
+    }
+    ball.speed_y = -2.5;
+    ball.speed_x *= -1.5;
 }
 
 void move_ball() {
+    // Lowest speed limit
+    if (ball.speed_x <= 0 && ball.speed_x > -1) {
+        ball.speed_x = -1;
+    }
+    if (ball.speed_x >= 0 && ball.speed_x < 1) {
+        ball.speed_x = 1;
+    }
+    if (ball.speed_x > MAX_BALL_SPEED) {
+        ball.speed_x = MAX_BALL_SPEED;
+    }
+    if (ball.speed_x < -MAX_BALL_SPEED) {
+        ball.speed_x = -MAX_BALL_SPEED;
+    }
+    // Highest speed limit
+    // if (ball.speed_x > MAX_BALL_SPEED) {
+    //     ball.speed_x = MAX_BALL_SPEED;
+    // }
+    // if (ball.speed_x < -MAX_BALL_SPEED) {
+    //     ball.speed_x = -MAX_BALL_SPEED;
+    // }
+    // if (ball.speed_y > MAX_BALL_SPEED) {
+    //     ball.speed_y = MAX_BALL_SPEED;
+    // }
+    // if (ball.speed_y < -MAX_BALL_SPEED) {
+    //     ball.speed_y = MAX_BALL_SPEED;
+    // }
     // Add a little gravity so the ball not freeze in midair
     if ((int)ball.speed_y == 0){
         ball.speed_y += 0.27;
@@ -72,4 +125,64 @@ void move_ball() {
         ball.speed_x += friction;
     }
     
+
+
+   
+}
+
+void check_player1_ball_collision() {
+    
+    // For Player 1
+    if (p1.pos_x + 11 >= ball.pos_x && p1.pos_x + 6 <= ball.pos_x) {
+        // Foot
+        if (p1.pos_y - 6 <= ball.pos_y && p1.pos_y + 4 > ball.pos_y) {
+            shoot(1);
+        }
+        // Front body
+        else if (p1.pos_y - 13 <= ball.pos_y && p1.pos_y - 6 > ball.pos_y) {
+            bounce_player(1);
+        }
+    }
+    else if (p1.pos_x - 4 <= ball.pos_x && p1.pos_x >= ball.pos_x) {
+        // Back body
+        if (p1.pos_y - 13 <= ball.pos_y && p1.pos_y + 4 > ball.pos_y) {
+            bounce_player(1);
+        }
+    }
+    else if (p1.pos_x + 11 > ball.pos_x && p1.pos_x - 4 < ball.pos_x) {
+        // Head
+        if (p1.pos_y - 14 <= ball.pos_y) {
+            head_player();
+        }
+    }
+    
+}
+
+void check_player2_ball_collision() { 
+    
+    // For Player 2
+    if (p2.pos_x - 11 <= ball.pos_x && p2.pos_x + 6 >= ball.pos_x) {
+        // Foot
+        if (p2.pos_y - 6 <= ball.pos_y && p2.pos_y + 4 > ball.pos_y) {
+            shoot(1);
+        }
+        // Front body
+        else if (p2.pos_y - 13 <= ball.pos_y && p2.pos_y - 6 > ball.pos_y) {
+            bounce_player(1);
+        }
+    }
+    else if (p2.pos_x - 4 >= ball.pos_x && p2.pos_x <= ball.pos_x) {
+        // Back body
+        if (p2.pos_y - 13 <= ball.pos_y && p2.pos_y + 4 > ball.pos_y) {
+            bounce_player(1);
+        }
+    }
+    else if (p2.pos_x + 11 < ball.pos_x && p2.pos_x - 4 > ball.pos_x) {
+        // Head
+        if (p2.pos_y - 14 <= ball.pos_y) {
+            head_player();
+        }
+    }
+    
+
 }
