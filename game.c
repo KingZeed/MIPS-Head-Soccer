@@ -65,6 +65,7 @@ void multiplayer(){
 }
 
 multiplayer_game_loop() {
+        display_score();
     while (1) {
 		display_clear();
 		draw_left_goal();
@@ -74,12 +75,13 @@ multiplayer_game_loop() {
 		draw_player2(p2.pos_x, p2.pos_y);
         check_barriar_collision();
 		check_movement();
-        move_ball();
-        display_score();
         check_goal();
+        check_player1_ball_collision();
+        check_player2_ball_collision();
+        move_ball();
 
 		display_update();
-        delay(100000);
+        delay(150000);
 	}
 }
 
@@ -101,7 +103,7 @@ singleplayer_game_loop() {
         check_player2_ball_collision();
         
         display_update();
-        delay(110000);
+        delay(115000);
         }
 }
 
@@ -137,7 +139,7 @@ void goal(int player){
     // When player1 scores
     if(player == 1){
         p1_score++;
-        if(playing_multiplayer && p2_score == 3){
+        if(playing_multiplayer && p1_score == 3){
             end_game(1);
         }
     }
@@ -159,8 +161,13 @@ void goal(int player){
     else {
         reset_pos(player);
     }
-    
-    singleplayer_game_loop();
+
+    if (playing_singleplayer) {
+        singleplayer_game_loop();
+    }
+    else {
+        multiplayer_game_loop();
+    }
     
 }
 

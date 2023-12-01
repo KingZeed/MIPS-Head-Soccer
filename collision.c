@@ -2,24 +2,35 @@
 #include <stdint.h>
 #include "project.h"
 
-#define MAX_BALL_SPEED 4 
+#define MAX_BALL_SPEED 3 
 
-double bounce_ground = 0.85;
+double bounce_ground = 0.82;
 double gravity = 0.05;
-double friction = 0.003;
+double friction = 0.005;
 
 void check_crossbar_collision() {
-    if(ball.pos_y + BALL_RADIUS <= 11){
-        ball.pos_x *= -1;
+    if(ball.pos_y + BALL_RADIUS <= 15) {
+        // Right crossbar
+        if (ball.pos_x > 115 - BALL_RADIUS) {
+            ball.pos_x -= 3;
+            ball.pos_y -= 3;
+            ball.speed_x *= -1;
+        }
+        // Left crossbar
+        if (ball.pos_x < 12 + BALL_RADIUS) {
+            ball.pos_x += 3;
+            ball.pos_y -= 3;
+            ball.speed_x *= -1;
+        }
     }
 }
 
 void check_goal() {
-    if (ball.pos_x <= 13 && ball.pos_y > 10) {
+    if (ball.pos_x <= 13 && ball.pos_y > 15) {
         goal(2);
     }
 
-    if (ball.pos_x >= 116 && ball.pos_y > 10) {
+    if (ball.pos_x >= 116 && ball.pos_y > 15) {
         goal(1);
     }
 }
@@ -58,7 +69,7 @@ void shoot(){
             ball.pos_x -= 3;
         }
         ball.speed_x *= -2;
-        ball.speed_y = -2;  
+        ball.speed_y = -2.5;  
 }
 
 void bounce_player() {
