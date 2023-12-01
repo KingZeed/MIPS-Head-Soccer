@@ -2,8 +2,10 @@
 DEVICE		= 32MX320F128H
 
 # UART settings for programmer ,ttyS2 for Max
+
 # måns tty.usbserial-A503WF9V
 TTYDEV		?=/dev/tty.usbserial-A503WF9V
+
 TTYBAUD		?=115200
 
 # Name of the project

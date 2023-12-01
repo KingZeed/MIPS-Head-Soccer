@@ -2,9 +2,14 @@
 #include <stdint.h>
 #include "project.h"
 
+
+
+
+
 struct Player p1 = {24, 31, 1, 0, 0};
 struct Player p2 = {103, 31, 1, 0, 0};
-struct Ball ball = {60, 12, 1, 1};
+struct Ball ball = {60, 12, 2, -1};
+
 
 void check_movement() {
     if (get_button(4)) {
@@ -120,3 +125,4 @@ void jump_player(int player_number) {
     }
    
 }
+
