@@ -51,6 +51,9 @@ void setUp(){
 int main() {
 	setUp();
 	display_init();
+	// setup_lists();
+	// display_clear();
+	// startscreen();
 	while (1) {
 		display_clear();
 		draw_left_goal();
@@ -65,7 +68,7 @@ int main() {
 
 		check_movement();
 		display_update();
-		delay(70000);
+		delay(100000);
 	}
 	
 	
