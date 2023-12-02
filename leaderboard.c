@@ -109,6 +109,7 @@ void int_to_char(int points, char *score) {
     score[0] = d1+'0';
     score[1] = d2+'0';
     score[2] = d3+'0'; 
+    score[3] = '\0'; 
 }
 
 /* swap rows in leaderboard */
@@ -155,7 +156,7 @@ void sort_leaderboard() {
 /* Saves the name and inserts it to leaderboard */
 void save_name(int points, char *name) {
     int i,j;
-    char score[3];
+    char score[4];
     
     
     int_to_char(points, score);

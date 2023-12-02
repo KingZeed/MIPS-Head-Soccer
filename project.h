@@ -4,27 +4,28 @@
 #define DISPLAY_WIDTH 127
 #define DISPLAY_HEIGHT 31
 
-
 uint8_t display[32][128]; // pixel coordinate system
 
 struct Ball {
     int pos_x;
     int pos_y;
-    double speed_x;
-    double speed_y;
+    float speed_x;
+    float speed_y;
 };
 
 struct Player {
     int pos_x;
     int pos_y;
     int speed;
-    int rising;
-    int jumping;
 };
 
 extern struct Player p1;
 extern struct Player p2;
 extern struct Ball ball;
+
+void check_jump_player1();
+
+void check_jump_player2();
 
 void delay(int cyc);
 
@@ -65,6 +66,10 @@ int get_button(int button_number);
 int get_switchtoggle(int switch_number);
 
 void show_leaderboard();
+
+void check_player1_inputs();
+
+void check_player2_inputs();
 
 int check_leaderboard(int points);
 

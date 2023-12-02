@@ -4,9 +4,9 @@
 
 #define MAX_BALL_SPEED 3 
 
-double bounce_ground = 0.82;
-double gravity = 0.05;
-double friction = 0.005;
+float bounce_ground = 0.82;
+float gravity = 0.05;
+float friction = 0.005;
 
 void check_crossbar_collision() {
     if(ball.pos_y + BALL_RADIUS <= 15) {
@@ -44,8 +44,8 @@ void check_barriar_collision() {
     }
 
     if (ball.pos_y - BALL_RADIUS <= 0) {
-        ball.pos_y = 1 + BALL_RADIUS;
-        ball.speed_y *= -1; 
+        ball.pos_y = 2 + BALL_RADIUS;
+        ball.speed_y = -0.8; 
         // ball.speed += 0.05;
     }
 
@@ -62,22 +62,22 @@ void check_barriar_collision() {
 
 
 void shoot(){
-        if (ball.speed_x < 0) {
-            ball.pos_x += 3;
-        }
-        if (ball.speed_x > 0) {
-            ball.pos_x -= 3;
-        }
-        ball.speed_x *= -2;
-        ball.speed_y = -2.5;  
+    if (ball.speed_x < 0) {
+        ball.pos_x += 2;
+    }
+    if (ball.speed_x > 0) {
+        ball.pos_x -= 2;
+    }
+    ball.speed_x *= -2;
+    ball.speed_y = -2.5;  
 }
 
 void bounce_player() {
     if (ball.speed_x < 0) {
-            ball.pos_x += 3;
-        }
+        ball.pos_x += 2;
+    }
     if (ball.speed_x > 0) {
-        ball.pos_x -= 3;
+        ball.pos_x -= 2;
     }
     ball.speed_x *= -1.4;
 }
@@ -107,19 +107,7 @@ void move_ball() {
     if (ball.speed_x < -MAX_BALL_SPEED) {
         ball.speed_x = -MAX_BALL_SPEED;
     }
-    // Highest speed limit
-    // if (ball.speed_x > MAX_BALL_SPEED) {
-    //     ball.speed_x = MAX_BALL_SPEED;
-    // }
-    // if (ball.speed_x < -MAX_BALL_SPEED) {
-    //     ball.speed_x = -MAX_BALL_SPEED;
-    // }
-    // if (ball.speed_y > MAX_BALL_SPEED) {
-    //     ball.speed_y = MAX_BALL_SPEED;
-    // }
-    // if (ball.speed_y < -MAX_BALL_SPEED) {
-    //     ball.speed_y = MAX_BALL_SPEED;
-    // }
+    
     // Add a little gravity so the ball not freeze in midair
     if ((int)ball.speed_y == 0){
         ball.speed_y += 0.27;
@@ -135,10 +123,7 @@ void move_ball() {
     if (ball.speed_x < 0) {
         ball.speed_x += friction;
     }
-    
-
-
-   
+ 
 }
 
 void check_player1_ball_collision() {
@@ -147,17 +132,17 @@ void check_player1_ball_collision() {
     if (p1.pos_x + 11 >= ball.pos_x && p1.pos_x + 6 <= ball.pos_x) {
         // Foot
         if (p1.pos_y - 6 <= ball.pos_y && p1.pos_y + 4 > ball.pos_y) {
-            shoot(1);
+            shoot();
         }
         // Front body
         else if (p1.pos_y - 13 <= ball.pos_y && p1.pos_y - 6 > ball.pos_y) {
-            bounce_player(1);
+            bounce_player();
         }
     }
     else if (p1.pos_x - 4 <= ball.pos_x && p1.pos_x >= ball.pos_x) {
         // Back body
         if (p1.pos_y - 13 <= ball.pos_y && p1.pos_y + 4 > ball.pos_y) {
-            bounce_player(1);
+            bounce_player();
         }
     }
     else if (p1.pos_x + 11 > ball.pos_x && p1.pos_x - 4 < ball.pos_x) {
@@ -175,17 +160,17 @@ void check_player2_ball_collision() {
     if (p2.pos_x - 11 <= ball.pos_x && p2.pos_x + 6 >= ball.pos_x) {
         // Foot
         if (p2.pos_y - 6 <= ball.pos_y && p2.pos_y + 4 > ball.pos_y) {
-            shoot(1);
+            shoot();
         }
         // Front body
         else if (p2.pos_y - 13 <= ball.pos_y && p2.pos_y - 6 > ball.pos_y) {
-            bounce_player(1);
+            bounce_player();
         }
     }
     else if (p2.pos_x - 4 >= ball.pos_x && p2.pos_x <= ball.pos_x) {
         // Back body
         if (p2.pos_y - 13 <= ball.pos_y && p2.pos_y + 4 > ball.pos_y) {
-            bounce_player(1);
+            bounce_player();
         }
     }
     else if (p2.pos_x + 11 < ball.pos_x && p2.pos_x - 4 > ball.pos_x) {

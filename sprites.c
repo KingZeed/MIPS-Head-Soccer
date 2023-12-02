@@ -68,9 +68,6 @@ void draw_left_goal() {
     display[31][12] = dot_color;
 
 
-
-
-
 };
 
 void draw_right_goal() {

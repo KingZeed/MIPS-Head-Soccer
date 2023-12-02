@@ -2,8 +2,18 @@
 #include <stdint.h>
 #include "project.h"
 
-struct Player p1 = {24, 31, 1, 0, 0};
-struct Player p2 = {103, 31, 1, 0, 0};
+struct Player p1 = {24, 31, 1};
+struct Player p2 = {103, 31, 1};
+
+int p1_jumping = 0;
+int p1_in_air = 0;
+int p1_ready = 1;
+float p1_jumpspeed = 0.2;
+
+int p2_jumping = 0;
+int p2_in_air = 0;
+int p2_ready = 1;
+float p2_jumpspeed = 0.2;
 
 
 int right = 0;
@@ -12,36 +22,33 @@ int left = 1;
 struct Ball ball = {63, 12, -2, -1};
 
 
-void check_movement() {
+void check_player1_inputs() {
     if (get_button(4)) {
         move_player_left(1);
     }
-    if (get_button(3)) {
+    else if (get_button(3)) {
         move_player_right(1);
     }
+    if (get_switchtoggle(4) && p1_ready) {
+        p1_ready = 0;
+        p1_jumping = 1;
+    }
+}
+
+void check_player2_inputs() {
     if (get_button(2)) {
         move_player_left(2);
     }
-    if (get_button(1)) {
+    else if (get_button(1)) {
         move_player_right(2);
     }
-    if (get_switchtoggle(4)) {
-        if (!p1.jumping) {
-            start_jump(1);
-        }
-    }
-    if (get_switchtoggle(2)) {
-        if (!p2.jumping) {
-            start_jump(2);
-        }
-    }
-    if (p1.pos_y <= 31) {
-        jump_player(1);
-    }
-    if (p2.pos_y <= 31) {
-        jump_player(2);
+    if (get_switchtoggle(2) && p2_ready) {
+        p2_ready = 0;
+        p2_jumping = 1;
     }
 }
+
+
 
 void move_player_right(int player_number) {
     if (player_number == 1 && p1.pos_x <= 55) {
@@ -61,76 +68,75 @@ void move_player_left(int player_number) {
     }
 }
 
-void start_jump(int player_number) {
-    if (player_number == 1) {
-        p1.jumping = 1;
-        p1.rising = 1;
-        p1.pos_y--;
-    }
-    if (player_number == 2) {
-        p2.jumping = 1;
-        p2.rising = 1;
-        p2.pos_y--;
-    }
-}
 
-void jump_player(int player_number) {
-    if (player_number == 1) {
-        switch (p1.pos_y)
-        {
-        case 31 ... 35: // End jump
-            p1.jumping = 0;
+void check_jump_player1() {
+
+    const int jump_height = 24;
+    const float jump_speed_increment = 0.2;
+
+    if(p1_jumping) {
+        p1_in_air = 1;
+        p1.pos_y -= (int)p1_jumpspeed;
+        p1_jumpspeed += jump_speed_increment;
+
+        if(p1.pos_y < jump_height){
+            p1_jumpspeed = jump_speed_increment;
+            p1_jumping = 0;
+        }
+    }
+    else {
+        if(p1_in_air){
+            p1_jumpspeed += 0.2;
+            p1.pos_y += (int)p1_jumpspeed;
+            if(p1.pos_y >= 31){
+                p1_in_air = 0;
+                p1_ready = 1;
+            }
+        }
+        else {
+            p1_jumpspeed = 0.1;
             p1.pos_y = 31;
-            break;
-        case 21 ... 30:
-            if (p1.rising) {
-                p1.pos_y--;
-            }
-            else if (!p1.rising) {
-                p1.pos_y++;
-            }
-            break;
-        case 20:
-            p1.rising = 0;
-            p1.pos_y = 21;
-            break;
-        
-        default:
-            break;
         }
     }
 
-    if (player_number == 2) {
-        switch (p2.pos_y)
-        {
-        case 31 ... 35: // End jump
-            p2.jumping = 0;
-            p2.pos_y = 31;
-            break;
-        case 21 ... 30:
-            if (p2.rising) {
-                p2.pos_y--;
-            }
-            else if (!p2.rising) {
-                p2.pos_y++;
-            }
-            break;
-        case 20:
-            p2.rising = 0;
-            p2.pos_y = 21;
-            break;
-        
-        default:
-            break;
+}
+
+void check_jump_player2(){
+    const int jump_height = 24;
+    const float jump_speed_increment = 0.2;
+
+    if(p2_jumping) {
+        p2_in_air = 1;
+        p2.pos_y -= (int)p2_jumpspeed;
+        p2_jumpspeed += jump_speed_increment;
+
+        if(p2.pos_y < jump_height){
+            p2_jumpspeed = jump_speed_increment;
+            p2_jumping = 0;
         }
     }
-   
+    else {
+        if(p2_in_air){
+            p2_jumpspeed += 0.2;
+            p2.pos_y += (int)p2_jumpspeed;
+            if(p2.pos_y >= 31){
+                p2_in_air = 0;
+                p2_ready = 1;
+            }
+        }
+        else {
+            p2_jumpspeed = 0.1;
+            p2.pos_y = 31;
+        }
+    }
 }
+
 
 void hardbot_thinking() {
     // ball is not on bot side
-    if(ball.pos_y < 25 && p2.pos_y == 31){
-        start_jump(2);
+    if(ball.pos_y < 25 && p2.pos_y == 31 && p2_ready){
+        p2_ready = 0;
+        p2_jumping = 1;
     }
 
     if(ball.pos_x < (DISPLAY_WIDTH/2)){
@@ -174,7 +180,7 @@ void hardbot_thinking() {
 void easybot_thinking() {
     // ball is not on bot side
     if(ball.pos_y < 10 && p2.pos_y == 31){
-        start_jump(2);
+        //start_jump(2);
     }
 
     if(ball.pos_x < (DISPLAY_WIDTH/2)){
@@ -191,7 +197,7 @@ void easybot_thinking() {
         }
 
         if(right){
-            start_jump(2);
+            //start_jump(2);
         }
         if(left){
             move_player_left(2);

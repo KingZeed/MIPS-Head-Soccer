@@ -27,21 +27,12 @@ int get_button(int button_number){
     
 }
 
-/* Return a 4 bit value that represent witch buttons that are pressed */
-int get_buttons_4bit(){
-    int i;
-    int button_data = 0;
-    for(i = 0; i < 4; i++){
-        button_data |= (get_button(i+1) << i);
-    }
-    return button_data;
-}
 
 /* Check if switch(number) is pressed */
 int get_switchtoggle(int switch_number){
     switch(switch_number) {
-        case 1:
-            return get_input(PORTD, 8);
+        case 1: 
+            return get_input(PORTD, 8);       
         break;
         case 2:
             return get_input(PORTD, 9);
@@ -56,14 +47,6 @@ int get_switchtoggle(int switch_number){
     
 }
 
-/* Return a 4 bit value that represent whitch switches that are toggled */
-int get_switches_4bit(){
-    int i;
-    int button_data = 0;
-    for(i = 0; i < 4; i++){
-        button_data |= (get_switchtoggle(i+1) << i);
-    }
-    return button_data;
-}
+
 
 
