@@ -134,17 +134,17 @@ void check_player1_ball_collision() {
     if (p1.pos_x + 11 >= ball.pos_x && p1.pos_x + 6 <= ball.pos_x) {
         // Foot
         if (p1.pos_y - 6 <= ball.pos_y && p1.pos_y + 4 > ball.pos_y) {
-            shoot();
+            shoot(1);
         }
         // Front body
         else if (p1.pos_y - 13 <= ball.pos_y && p1.pos_y - 6 > ball.pos_y) {
-            bounce_player();
+            bounce_player(1);
         }
     }
     else if (p1.pos_x - 4 <= ball.pos_x && p1.pos_x >= ball.pos_x) {
         // Back body
         if (p1.pos_y - 13 <= ball.pos_y && p1.pos_y + 4 > ball.pos_y) {
-            bounce_player();
+            bounce_player(1);
         }
     }
     else if (p1.pos_x + 11 > ball.pos_x && p1.pos_x - 4 < ball.pos_x) {
@@ -162,17 +162,17 @@ void check_player2_ball_collision() {
     if (p2.pos_x - 11 <= ball.pos_x && p2.pos_x + 6 >= ball.pos_x) {
         // Foot
         if (p2.pos_y - 6 <= ball.pos_y && p2.pos_y + 4 > ball.pos_y) {
-            shoot();
+            shoot(1);
         }
         // Front body
         else if (p2.pos_y - 13 <= ball.pos_y && p2.pos_y - 6 > ball.pos_y) {
-            bounce_player();
+            bounce_player(1);
         }
     }
     else if (p2.pos_x - 4 >= ball.pos_x && p2.pos_x <= ball.pos_x) {
         // Back body
         if (p2.pos_y - 13 <= ball.pos_y && p2.pos_y + 4 > ball.pos_y) {
-            bounce_player();
+            bounce_player(1);
         }
     }
     else if (p2.pos_x + 11 < ball.pos_x && p2.pos_x - 4 > ball.pos_x) {
@@ -182,5 +182,4 @@ void check_player2_ball_collision() {
         }
     }
     
-
 }

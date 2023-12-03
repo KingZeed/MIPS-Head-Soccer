@@ -5,9 +5,6 @@
 uint8_t dot_color = 1;
 uint8_t left_goal[32][128];
 
-
-
-
 void draw_left_goal() {
     display[31][0] = dot_color;
     display[30][0] = dot_color;
@@ -66,7 +63,6 @@ void draw_left_goal() {
     display[29][12] = dot_color;
     display[30][12] = dot_color;
     display[31][12] = dot_color;
-
 
 };
 

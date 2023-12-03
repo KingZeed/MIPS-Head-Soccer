@@ -1,6 +1,6 @@
 #define BALL_RADIUS 3
 #define PLAYER_HEIGHT 9
-#define PLAYER_WEIGHT 6
+#define PLAYER_WIDTH 6
 #define DISPLAY_WIDTH 127
 #define DISPLAY_HEIGHT 31
 

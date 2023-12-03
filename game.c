@@ -180,7 +180,7 @@ void goal(int player){
     
     display_goal_animation();
     if(playing_singleplayer){
-        reset_pos(1);
+        reset_pos(2);
     }
     else {
         reset_pos(player);
@@ -299,14 +299,3 @@ void result_animation(winner) {
         PORTECLR = 0b11111111;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

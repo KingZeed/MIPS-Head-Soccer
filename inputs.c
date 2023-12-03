@@ -46,7 +46,3 @@ int get_switchtoggle(int switch_number){
     }
     
 }
-
-
-
-
