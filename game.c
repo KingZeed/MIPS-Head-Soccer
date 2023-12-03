@@ -71,6 +71,8 @@ multiplayer_game_loop() {
         display_clear();
         draw_left_goal();
         draw_right_goal();
+
+        move_ball();
     
         check_player1_inputs();
         check_player2_inputs();
@@ -82,7 +84,7 @@ multiplayer_game_loop() {
 
         check_jump_player1();
         check_jump_player2();
-        move_ball();
+        
 
         draw_ball(ball.pos_x, ball.pos_y);
         draw_player1(p1.pos_x, p1.pos_y);
@@ -102,6 +104,8 @@ singleplayer_game_loop() {
         draw_left_goal();
         draw_right_goal();
 
+        move_ball();
+
         check_player1_inputs();
         hardbot_thinking();
 
@@ -112,7 +116,7 @@ singleplayer_game_loop() {
 
         check_jump_player1();
         check_jump_player2();
-        move_ball();    
+          
 
 
         draw_ball(ball.pos_x, ball.pos_y);

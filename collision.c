@@ -63,26 +63,28 @@ void check_barriar_collision() {
 
 void shoot(){
     if (ball.speed_x < 0) {
-        ball.pos_x += 2;
+        ball.pos_x += 3;
     }
     if (ball.speed_x > 0) {
-        ball.pos_x -= 2;
+        ball.pos_x -= 3;
     }
+
     ball.speed_x *= -2;
     ball.speed_y = -2.5;  
 }
 
 void bounce_player() {
     if (ball.speed_x < 0) {
-        ball.pos_x += 2;
+        ball.pos_x += 3;
     }
     if (ball.speed_x > 0) {
-        ball.pos_x -= 2;
+        ball.pos_x -= 3;
     }
     ball.speed_x *= -1.4;
 }
 
 void head_player() {
+    ball.pos_y -= 5;
     if (ball.speed_x < 0) {
         ball.pos_x += 3;
     }
@@ -90,7 +92,7 @@ void head_player() {
         ball.pos_x -= 3;
     }
     ball.speed_y = -2.5;
-    ball.speed_x *= -1.5;
+    //ball.speed_x *= -1.5;
 }
 
 void move_ball() {
