@@ -71,13 +71,14 @@ void move_player_left(int player_number) {
 
 void check_jump_player1() {
 
-    const int jump_height = 24;
+    const int jump_height = 21;
     const float jump_speed_increment = 0.2;
 
     if(p1_jumping) {
         p1_in_air = 1;
-        p1.pos_y -= (int)p1_jumpspeed;
-        p1_jumpspeed += jump_speed_increment;
+        p1.pos_y--;
+        // p1.pos_y -= (int)p1_jumpspeed;
+        // p1_jumpspeed += jump_speed_increment;
 
         if(p1.pos_y < jump_height){
             p1_jumpspeed = jump_speed_increment;
@@ -87,7 +88,8 @@ void check_jump_player1() {
     else {
         if(p1_in_air){
             p1_jumpspeed += 0.2;
-            p1.pos_y += (int)p1_jumpspeed;
+            p1.pos_y++;
+            // p1.pos_y += (int)p1_jumpspeed;
             if(p1.pos_y >= 31){
                 p1_in_air = 0;
                 p1_ready = 1;
@@ -102,13 +104,13 @@ void check_jump_player1() {
 }
 
 void check_jump_player2(){
-    const int jump_height = 24;
+    const int jump_height = 21;
     const float jump_speed_increment = 0.2;
 
     if(p2_jumping) {
         p2_in_air = 1;
-        p2.pos_y -= (int)p2_jumpspeed;
-        p2_jumpspeed += jump_speed_increment;
+        p2.pos_y--;
+       
 
         if(p2.pos_y < jump_height){
             p2_jumpspeed = jump_speed_increment;
@@ -118,7 +120,7 @@ void check_jump_player2(){
     else {
         if(p2_in_air){
             p2_jumpspeed += 0.2;
-            p2.pos_y += (int)p2_jumpspeed;
+            p2.pos_y++;
             if(p2.pos_y >= 31){
                 p2_in_air = 0;
                 p2_ready = 1;

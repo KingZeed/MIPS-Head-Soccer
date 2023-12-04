@@ -93,7 +93,7 @@ multiplayer_game_loop() {
         display_update();
         display_score();
 
-        delay(115000);
+        delay(100000);
 	}
 }
 
