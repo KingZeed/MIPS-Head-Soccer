@@ -81,7 +81,7 @@ multiplayer_game_loop() {
         move_ball();
 
 		display_update();
-        delay(150000);
+        delay(110000);
 	}
 }
 

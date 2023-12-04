@@ -27,19 +27,19 @@ void check_movement() {
     }
     if (get_switchtoggle(4)) {
         if (!p1.jumping) {
-            start_jump(1);
+            start_jump_1();
         }
     }
     if (get_switchtoggle(2)) {
         if (!p2.jumping) {
-            start_jump(2);
+            start_jump_2();
         }
     }
     if (p1.pos_y <= 31) {
-        jump_player(1);
+        jump_player_1();
     }
     if (p2.pos_y <= 31) {
-        jump_player(2);
+        jump_player_2();
     }
 }
 
@@ -61,47 +61,19 @@ void move_player_left(int player_number) {
     }
 }
 
-void start_jump(int player_number) {
-    if (player_number == 1) {
-        p1.jumping = 1;
-        p1.rising = 1;
-        p1.pos_y--;
-    }
-    if (player_number == 2) {
-        p2.jumping = 1;
-        p2.rising = 1;
-        p2.pos_y--;
-    }
+void start_jump_1() {
+    p1.jumping = 1;
+    p1.rising = 1;
+    p1.pos_y--;
+}
+void start_jump_2() {
+    p2.jumping = 1;
+    p2.rising = 1;
+    p2.pos_y--;
 }
 
-void jump_player(int player_number) {
-    if (player_number == 1) {
-        switch (p1.pos_y)
-        {
-        case 31 ... 35: // End jump
-            p1.jumping = 0;
-            p1.pos_y = 31;
-            break;
-        case 21 ... 30:
-            if (p1.rising) {
-                p1.pos_y--;
-            }
-            else if (!p1.rising) {
-                p1.pos_y++;
-            }
-            break;
-        case 20:
-            p1.rising = 0;
-            p1.pos_y = 21;
-            break;
-        
-        default:
-            break;
-        }
-    }
-
-    if (player_number == 2) {
-        switch (p2.pos_y)
+void jump_player_2() {
+    switch (p2.pos_y)
         {
         case 31 ... 35: // End jump
             p2.jumping = 0;
@@ -123,6 +95,30 @@ void jump_player(int player_number) {
         default:
             break;
         }
+}
+
+    void jump_player_1() {
+        switch (p1.pos_y)
+        {
+        case 31 ... 35: // End jump
+            p1.jumping = 0;
+            p1.pos_y = 31;
+            break;
+        case 21 ... 30:
+            if (p1.rising) {
+                p1.pos_y--;
+            }
+            else if (!p1.rising) {
+                p1.pos_y++;
+            }
+            break;
+        case 20:
+            p1.rising = 0;
+            p1.pos_y = 21;
+            break;
+        
+        default:
+            break;
     }
    
 }
@@ -130,7 +126,7 @@ void jump_player(int player_number) {
 void hardbot_thinking() {
     // ball is not on bot side
     if(ball.pos_y < 25 && p2.pos_y == 31){
-        start_jump(2);
+        start_jump_2();
     }
 
     if(ball.pos_x < (DISPLAY_WIDTH/2)){
@@ -174,7 +170,7 @@ void hardbot_thinking() {
 void easybot_thinking() {
     // ball is not on bot side
     if(ball.pos_y < 10 && p2.pos_y == 31){
-        start_jump(2);
+        start_jump_2();
     }
 
     if(ball.pos_x < (DISPLAY_WIDTH/2)){
@@ -191,7 +187,7 @@ void easybot_thinking() {
         }
 
         if(right){
-            start_jump(2);
+            start_jump_2();
         }
         if(left){
             move_player_left(2);
