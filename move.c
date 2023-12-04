@@ -43,6 +43,36 @@ void check_movement() {
     }
 }
 
+void check_player1_inputs() {
+    if (get_button(4)) {
+        move_player_left(1);
+    }
+    else if (get_button(3)) {
+        move_player_right(1);
+    }
+    if (!p1.jumping) {
+        start_jump_1();
+    }
+    if (p1.pos_y <= 31) {
+        jump_player_1();
+    }
+}
+
+void check_player2_inputs() {
+    if (get_button(2)) {
+        move_player_left(2);
+    }
+    else if (get_button(1)) {
+        move_player_right(2);
+    }
+    if (!p2.jumping) {
+        start_jump_2();
+    }
+    if (p2.pos_y <= 31) {
+        jump_player_2();
+    }
+}
+
 void move_player_right(int player_number) {
     if (player_number == 1 && p1.pos_x <= 55) {
         p1.pos_x += p1.speed;
