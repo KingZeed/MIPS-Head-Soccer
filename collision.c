@@ -36,7 +36,6 @@ void check_goal() {
 }
 
 void check_barriar_collision() {
-    check_goal();
     check_crossbar_collision();
     if(ball.pos_y + BALL_RADIUS >= DISPLAY_HEIGHT){
         ball.pos_y = DISPLAY_HEIGHT - BALL_RADIUS;
