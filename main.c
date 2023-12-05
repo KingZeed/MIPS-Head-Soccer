@@ -2,7 +2,6 @@
 #include <stdint.h>
 #include "project.h"
 
-
 void setUp(){
 /* Set up peripheral bus clock */
 	// OSCCON &= ~0x180000;
@@ -27,7 +26,6 @@ void setUp(){
 	/* Set up input pins */
 	TRISDSET = (1 << 8);
 	TRISFSET = (1 << 1);
-
 
 	/* Set button & switches input pins */
 	TRISF |= (0b1 << 1); // button1

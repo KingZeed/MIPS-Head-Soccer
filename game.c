@@ -65,46 +65,70 @@ void multiplayer(){
 }
 
 multiplayer_game_loop() {
-        display_score();
+        
     while (1) {
-		display_clear();
-		draw_left_goal();
-		draw_right_goal();
-		draw_ball(ball.pos_x, ball.pos_y);
-		draw_player1(p1.pos_x, p1.pos_y);
-		draw_player2(p2.pos_x, p2.pos_y);
+
+        display_clear();
+        draw_left_goal();
+        draw_right_goal();
+
+        move_ball();
+    
+        check_player1_inputs();
+        check_player2_inputs();
+
         check_barriar_collision();
-		check_movement();
         check_goal();
         check_player1_ball_collision();
         check_player2_ball_collision();
-        move_ball();
 
-		display_update();
-        delay(150000);
+        check_jump_player1();
+        check_jump_player2();
+        
+
+        draw_ball(ball.pos_x, ball.pos_y);
+        draw_player1(p1.pos_x, p1.pos_y);
+        draw_player2(p2.pos_x, p2.pos_y);
+        
+        display_update();
+        display_score();
+
+        delay(100000);
 	}
 }
 
 singleplayer_game_loop() {
+    
     while (1) {
         display_clear();
         draw_left_goal();
         draw_right_goal();
+
+        move_ball();
+
+        check_player1_inputs_singleplayer();
+        hardbot_thinking();
+
+        check_barriar_collision();
+        check_goal();
+        check_player1_ball_collision();
+        check_player2_ball_collision();
+
+        check_jump_player1();
+        check_jump_player2();
+          
+
+
         draw_ball(ball.pos_x, ball.pos_y);
         draw_player1(p1.pos_x, p1.pos_y);
         draw_player2(p2.pos_x, p2.pos_y);
-        check_barriar_collision();
-        hardbot_thinking();
-        display_score();
-        check_movement();
-        check_goal();
-        move_ball();
-        check_player1_ball_collision();
-        check_player2_ball_collision();
         
+
         display_update();
-        delay(115000);
-        }
+        display_score();
+
+        delay(100000);
+    }
 }
 
 void end_game(int winner) {
@@ -127,7 +151,7 @@ void end_game(int winner) {
     reset_pos(1);
     int top9 = check_leaderboard(new_score);
     if(played_singleplayer && top9) {
-        enter_name(p1_score);
+        enter_name(new_score);
     }
     else {
         startscreen();
@@ -156,7 +180,7 @@ void goal(int player){
     
     display_goal_animation();
     if(playing_singleplayer){
-        reset_pos(1);
+        reset_pos(2);
     }
     else {
         reset_pos(player);
@@ -275,14 +299,3 @@ void result_animation(winner) {
         PORTECLR = 0b11111111;
     }
 }
-
-
-
-
-
-
-
-
-
-
-

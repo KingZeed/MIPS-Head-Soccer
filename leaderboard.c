@@ -109,6 +109,7 @@ void int_to_char(int points, char *score) {
     score[0] = d1+'0';
     score[1] = d2+'0';
     score[2] = d3+'0'; 
+    score[3] = '\0'; 
 }
 
 /* swap rows in leaderboard */
@@ -155,14 +156,12 @@ void sort_leaderboard() {
 /* Saves the name and inserts it to leaderboard */
 void save_name(int points, char *name) {
     int i,j;
-    char score[3];
+    char score[4];
     
     
     int_to_char(points, score);
     
     /* Put in the points and name in the last position in leaderboard */
-
-
     for(i = 0; i < 3; i++) {
         leaderboard_list[8][2+i] = name[i];
     }
@@ -171,7 +170,6 @@ void save_name(int points, char *name) {
     leaderboard_list[8][6] = score[0];
     leaderboard_list[8][7] = score[1];
     leaderboard_list[8][8] = score[2];
-    
 
     delay(10000);
     sort_leaderboard();
@@ -241,7 +239,6 @@ void enter_name(int points){
             delay(50000);
         }
         
-        
     }
 
 }
@@ -265,13 +262,3 @@ int check_leaderboard(int points) {
         
         
 }
-
-
-
-
-
-
-
-
-
-

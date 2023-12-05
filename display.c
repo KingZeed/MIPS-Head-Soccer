@@ -320,9 +320,6 @@ void display_dots() {
 	display[31][0] = 1;
 	display[0][127] = 1;
 	
-	
 	display_update();
 	
 }
-
-
