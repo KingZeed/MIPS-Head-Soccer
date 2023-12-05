@@ -159,7 +159,7 @@ void check_player1_ball_collision() {
 void check_player2_ball_collision() { 
     
     // For Player 2
-    if (p2.pos_x - 11 <= ball.pos_x && p2.pos_x + 6 >= ball.pos_x) {
+    if (p2.pos_x - 11 <= ball.pos_x && p2.pos_x - 6 >= ball.pos_x) {
         // Foot
         if (p2.pos_y - 6 <= ball.pos_y && p2.pos_y + 4 > ball.pos_y) {
             shoot(1);
@@ -175,7 +175,7 @@ void check_player2_ball_collision() {
             bounce_player(1);
         }
     }
-    else if (p2.pos_x + 11 < ball.pos_x && p2.pos_x - 4 > ball.pos_x) {
+    else if (p2.pos_x - 11 < ball.pos_x && p2.pos_x - 4 > ball.pos_x) {
         // Head
         if (p2.pos_y - 14 <= ball.pos_y) {
             head_player();

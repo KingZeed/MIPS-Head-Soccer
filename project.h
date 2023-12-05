@@ -93,3 +93,5 @@ void reset_pos(int player);
 void check_player1_ball_collision();
 
 void check_player2_ball_collision();
+
+void check_player1_inputs_singleplayer();

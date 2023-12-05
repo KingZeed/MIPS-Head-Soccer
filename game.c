@@ -106,7 +106,7 @@ singleplayer_game_loop() {
 
         move_ball();
 
-        check_player1_inputs();
+        check_player1_inputs_singleplayer();
         hardbot_thinking();
 
         check_barriar_collision();
@@ -127,7 +127,7 @@ singleplayer_game_loop() {
         display_update();
         display_score();
 
-        delay(115000);
+        delay(100000);
     }
 }
 

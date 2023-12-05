@@ -35,6 +35,19 @@ void check_player1_inputs() {
     }
 }
 
+void check_player1_inputs_singleplayer() {
+    if (get_button(4)) {
+        move_player_left(1);
+    }
+    else if (get_button(3)) {
+        move_player_right(1);
+    }
+    if (get_button(2) && p1_ready) {
+        p1_ready = 0;
+        p1_jumping = 1;
+    }
+}
+
 void check_player2_inputs() {
     if (get_button(2)) {
         move_player_left(2);
