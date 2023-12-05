@@ -36,7 +36,6 @@ void check_goal() {
 }
 
 void check_barriar_collision() {
-    check_goal();
     check_crossbar_collision();
     if(ball.pos_y + BALL_RADIUS >= DISPLAY_HEIGHT){
         ball.pos_y = DISPLAY_HEIGHT - BALL_RADIUS;
@@ -175,7 +174,7 @@ void check_player2_ball_collision() {
             bounce_player(1);
         }
     }
-    else if (p2.pos_x - 11 < ball.pos_x && p2.pos_x - 4 > ball.pos_x) {
+    else if (p2.pos_x - 11 < ball.pos_x && p2.pos_x + 4 > ball.pos_x) {
         // Head
         if (p2.pos_y - 14 <= ball.pos_y) {
             head_player();

@@ -9,27 +9,15 @@ int p2_score = 0;
 int playing_singleplayer = 0;
 int playing_multiplayer = 0;
 
-/* void singleplayer(){
-    clear_displaytext();
-    display_string(0, "Singleplayer");
-    display_string(1, "Work in progress");
-    display_string(2, "Startscreen (1)");
-    while(1) {
-        string_update();
-        if (get_button(1)) {
-            while (get_button(1)) {}
-            startscreen();
-        }
-    }
-} */
+int difficulty = 0;
 
 void singleplayer() {
 
     clear_displaytext();
-    display_string(0, "Singleplayer");
-    display_string(1, "Work in progress");
-    display_string(2, "Startscreen (1)");
-    display_string(3, "Start game (2)");
+    display_string(0, "Choose difficulty");
+    display_string(1, "Easy (3)");
+    display_string(2, "Hard (2)");
+    display_string(3, "Startscreen (1)");
     while(1) {
         string_update();
         if (get_button(1)) {
@@ -39,6 +27,13 @@ void singleplayer() {
         if (get_button(2)) {
             while (get_button(2)) {}
             playing_singleplayer = 1;
+            difficulty = 1;
+            singleplayer_game_loop();
+        }
+        if (get_button(3)) {
+            while (get_button(3)) {}
+            playing_singleplayer = 1;
+            difficulty = 0;
             singleplayer_game_loop();
         }
     }
@@ -116,8 +111,6 @@ singleplayer_game_loop() {
 
         check_jump_player1();
         check_jump_player2();
-          
-
 
         draw_ball(ball.pos_x, ball.pos_y);
         draw_player1(p1.pos_x, p1.pos_y);

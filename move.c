@@ -156,7 +156,7 @@ void hardbot_thinking() {
 
     if(ball.pos_x < (DISPLAY_WIDTH/2)){
 
-        if(p2.pos_x < 80) {
+        if(p2.pos_x < 90) {
             
             right = 1;
             left = 0;
@@ -195,24 +195,26 @@ void hardbot_thinking() {
 void easybot_thinking() {
     // ball is not on bot side
     if(ball.pos_y < 10 && p2.pos_y == 31){
-        //start_jump(2);
+        p2_ready = 0;
+        p2_jumping = 1;
     }
 
     if(ball.pos_x < (DISPLAY_WIDTH/2)){
 
-        if(p2.pos_x < 80) {
+        if(p2.pos_x < 50) {
             
             right = 1;
             left = 0;
         }
         if (p2.pos_x > 105) {
-            
             right = 0;
             left = 1;
         }
 
         if(right){
-            //start_jump(2);
+            p2_ready = 0;
+            p2_jumping = 1;
+            move_player_right(2);
         }
         if(left){
             move_player_left(2);
