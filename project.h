@@ -95,3 +95,5 @@ void check_player1_ball_collision();
 void check_player2_ball_collision();
 
 void check_player1_inputs_singleplayer();
+
+void bot_thinking(int *bot_difficulty);

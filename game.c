@@ -8,8 +8,7 @@ int p2_score = 0;
 
 int playing_singleplayer = 0;
 int playing_multiplayer = 0;
-
-int difficulty = 0;
+int bot_difficulty;
 
 void singleplayer() {
 
@@ -27,13 +26,13 @@ void singleplayer() {
         if (get_button(2)) {
             while (get_button(2)) {}
             playing_singleplayer = 1;
-            difficulty = 1;
+            bot_difficulty = 1;
             singleplayer_game_loop();
         }
         if (get_button(3)) {
             while (get_button(3)) {}
             playing_singleplayer = 1;
-            difficulty = 0;
+            bot_difficulty = 0;
             singleplayer_game_loop();
         }
     }
@@ -101,7 +100,7 @@ singleplayer_game_loop() {
         move_ball();
 
         check_player1_inputs_singleplayer();
-        hardbot_thinking();
+        bot_thinking(&bot_difficulty);
 
         check_barriar_collision();
         check_goal();
