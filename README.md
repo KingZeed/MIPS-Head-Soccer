@@ -14,7 +14,7 @@ Headsoccer is simple 2D game that is played on a chipkit with I/O Sheild.
 
 ## Requirements
 
-- [mcb32 toolchain](https://github.com/is1200-example-projects/mcb32tools/releases/) and follow the instructions how to run the mcb32 environment
+- [mcb32 toolchain](https://github.com/is1200-example-projects/mcb32tools/releases/) 
 
 - [ChipKIT uC32](https://digilent.com/reference/microprocessor/uc32/start)
 
