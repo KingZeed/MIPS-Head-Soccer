@@ -15,12 +15,10 @@ int p2_in_air = 0;
 int p2_ready = 1;
 float p2_jumpspeed = 0.2;
 
-
 int right = 0;
 int left = 1;
 
 struct Ball ball = {63, 12, -2, -1};
-
 
 void check_player1_inputs() {
     if (get_button(4)) {
@@ -60,8 +58,6 @@ void check_player2_inputs() {
         p2_jumping = 1;
     }
 }
-
-
 
 void move_player_right(int player_number) {
     if (player_number == 1 && p1.pos_x <= 55) {
