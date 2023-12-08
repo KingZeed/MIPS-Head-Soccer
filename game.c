@@ -42,7 +42,7 @@ void singleplayer() {
 void multiplayer(){
     clear_displaytext();
     display_string(0, "Multiplayer");
-    display_string(1, "Work in progress");
+    display_string(1, "");
     display_string(2, "Startscreen (1)");
     display_string(3, "Start game (2)");
     while(1) {
@@ -72,7 +72,7 @@ multiplayer_game_loop() {
         check_player1_inputs();
         check_player2_inputs();
 
-        check_barriar_collision();
+        check_barrier_collision();
         check_goal();
         check_player1_ball_collision();
         check_player2_ball_collision();
@@ -103,7 +103,7 @@ singleplayer_game_loop() {
         check_player1_inputs_singleplayer();
         hardbot_thinking();
 
-        check_barriar_collision();
+        check_barrier_collision();
         check_goal();
         check_player1_ball_collision();
         check_player2_ball_collision();

@@ -1,3 +1,4 @@
+/* Taken from lab */
 
 void _nmi_handler() {
 	for(;;);

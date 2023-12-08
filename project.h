@@ -29,7 +29,7 @@ void check_jump_player2();
 
 void delay(int cyc);
 
-void check_barriar_collision();
+void check_barrier_collision();
 
 void move_ball();
 
@@ -90,6 +90,7 @@ void singleplayer();
 void goal(int player);
 
 void reset_pos(int player);
+
 void check_player1_ball_collision();
 
 void check_player2_ball_collision();

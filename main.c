@@ -2,10 +2,8 @@
 #include <stdint.h>
 #include "project.h"
 
+/* Taken from lab */
 void setUp(){
-/* Set up peripheral bus clock */
-	// OSCCON &= ~0x180000;
-	// OSCCON |= 0x080000;
 	
 	/* Set up output pins */
 	AD1PCFG = 0xFFFF;

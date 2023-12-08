@@ -35,7 +35,7 @@ void check_goal() {
     }
 }
 
-void check_barriar_collision() {
+void check_barrier_collision() {
     check_crossbar_collision();
     if(ball.pos_y + BALL_RADIUS >= DISPLAY_HEIGHT){
         ball.pos_y = DISPLAY_HEIGHT - BALL_RADIUS;
@@ -45,7 +45,6 @@ void check_barriar_collision() {
     if (ball.pos_y - BALL_RADIUS <= 0) {
         ball.pos_y = 2 + BALL_RADIUS;
         ball.speed_y = -0.8; 
-        // ball.speed += 0.05;
     }
 
     if (ball.pos_x + BALL_RADIUS >= DISPLAY_WIDTH) {
@@ -91,7 +90,7 @@ void head_player() {
         ball.pos_x -= 3;
     }
     ball.speed_y = -2.1;
-    //ball.speed_x *= -1.5;
+    
 }
 
 void move_ball() {
