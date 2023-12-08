@@ -7,9 +7,9 @@ Headsoccer is simple 2D game that is played on a chipkit with I/O Sheild.
 ## Features
 
 - Singleplayer mode that is a survival mode
-- bots with easy and hard mode
+- Bots with easy and hard mode
 - Leaderboard
-- multiplayer mode
+- Multiplayer mode
 - Goal animation with leds
 
 ## Requirements
@@ -24,7 +24,7 @@ Headsoccer is simple 2D game that is played on a chipkit with I/O Sheild.
 
 1. Clone this repository to your local machine.
 ```console
-git@github.com:KingZeed/MIPS-Head-Soccer.git
+git clone git@github.com:KingZeed/MIPS-Head-Soccer.git
 ```
 2. Download [mcb32 toolchain](https://github.com/is1200-example-projects/mcb32tools/releases/) and follow the instructions how to run the mcb32 environment
 
@@ -32,7 +32,7 @@ git@github.com:KingZeed/MIPS-Head-Soccer.git
  ```console
 cd ~/MIPS-Head-Soccer
 ```
-4. plug in the chipkit with I/O Sheild in your computer and run
+4. Plug in the chipkit with I/O Sheild in your computer and run
 ```console
 make && make install
 ```
