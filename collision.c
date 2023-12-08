@@ -83,14 +83,14 @@ void bounce_player() {
 }
 
 void head_player() {
-    ball.pos_y -= 5;
+    ball.pos_y -= 4;
     if (ball.speed_x < 0) {
         ball.pos_x += 3;
     }
     if (ball.speed_x > 0) {
         ball.pos_x -= 3;
     }
-    ball.speed_y = -2.5;
+    ball.speed_y = -2.1;
     //ball.speed_x *= -1.5;
 }
 

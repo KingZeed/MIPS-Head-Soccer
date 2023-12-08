@@ -79,7 +79,6 @@ multiplayer_game_loop() {
 
         check_jump_player1();
         check_jump_player2();
-        
 
         draw_ball(ball.pos_x, ball.pos_y);
         draw_player1(p1.pos_x, p1.pos_y);
@@ -115,7 +114,6 @@ singleplayer_game_loop() {
         draw_ball(ball.pos_x, ball.pos_y);
         draw_player1(p1.pos_x, p1.pos_y);
         draw_player2(p2.pos_x, p2.pos_y);
-        
 
         display_update();
         display_score();
@@ -134,7 +132,6 @@ void end_game(int winner) {
         result_animation(winner);
     }
     int new_score = p1_score;
-
     // Reset things
     int played_singleplayer = playing_singleplayer;
     playing_multiplayer = 0;
