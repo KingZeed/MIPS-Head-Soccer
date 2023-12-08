@@ -5,7 +5,6 @@
 int p1_score = 0;
 int p2_score = 0;
 
-
 int playing_singleplayer = 0;
 int playing_multiplayer = 0;
 
@@ -281,7 +280,7 @@ void result_animation(winner) {
     }
     display_string(3, "");
 
-    for(i = 0; i < 5; i++) {
+    for(i = 0; i < 7; i++) {
         delay(1000000);
         PORTESET = 0b11111111;
         string_update();
