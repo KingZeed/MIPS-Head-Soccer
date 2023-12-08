@@ -22,6 +22,14 @@ int left = 1;
 struct Ball ball = {63, 12, -2, -1};
 
 
+void bot_thinking(int *bot_difficulty) {
+    if (*bot_difficulty) {
+        hardbot_thinking();
+    }
+    else {
+        easybot_thinking();
+    }
+}
 void check_player1_inputs() {
     if (get_button(4)) {
         move_player_left(1);
