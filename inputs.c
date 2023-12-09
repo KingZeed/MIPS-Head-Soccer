@@ -27,7 +27,6 @@ int get_button(int button_number){
     
 }
 
-
 /* Check if switch(number) is pressed */
 int get_switchtoggle(int switch_number){
     switch(switch_number) {

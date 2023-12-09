@@ -5,7 +5,6 @@
 int p1_score = 0;
 int p2_score = 0;
 
-
 int playing_singleplayer = 0;
 int playing_multiplayer = 0;
 int bot_difficulty;
@@ -41,7 +40,7 @@ void singleplayer() {
 void multiplayer(){
     clear_displaytext();
     display_string(0, "Multiplayer");
-    display_string(1, "Work in progress");
+    display_string(1, "");
     display_string(2, "Startscreen (1)");
     display_string(3, "Start game (2)");
     while(1) {

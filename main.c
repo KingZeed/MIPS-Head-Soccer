@@ -40,7 +40,7 @@ void setUp(){
 	/* Clear SPIROV*/
 	SPI2STATCLR &= ~0x40;
 	/* Set CKP = 1, MSTEN = 1; */
-        SPI2CON |= 0x60;
+    SPI2CON |= 0x60;
 	
 	/* Turn on SPI */
 	SPI2CONSET = 0x8000;
