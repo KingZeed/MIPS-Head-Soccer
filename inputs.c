@@ -1,6 +1,8 @@
 #include <pic32mx.h>
 
-/* Hardcoded port and shift number for each button */
+/* Hardcoded port and shift number for each button
+    Written by Max 
+*/
 int get_input(int port, int shift) {
     int data = port;
     data = data >> shift;
@@ -8,7 +10,9 @@ int get_input(int port, int shift) {
     return data;
 }
 
-/* Check if button(number) is pressed */
+/* Check if button(number) is pressed 
+    Written by Max
+*/
 int get_button(int button_number){
     switch(button_number) {
         case 1:
@@ -27,7 +31,9 @@ int get_button(int button_number){
     
 }
 
-/* Check if switch(number) is pressed */
+/* Check if switch(number) is pressed 
+    Written by Max
+*/
 int get_switchtoggle(int switch_number){
     switch(switch_number) {
         case 1: 

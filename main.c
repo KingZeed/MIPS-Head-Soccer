@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include "project.h"
 
+/* Taken from project template */
 void setUp(){
 /* Set up peripheral bus clock */
 	// OSCCON &= ~0x180000;

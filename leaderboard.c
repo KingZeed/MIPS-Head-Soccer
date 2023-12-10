@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include "project.h"
 
+/* File written by Max */
 char leaderboard_list[9][10];
 char alphabet[26];
 

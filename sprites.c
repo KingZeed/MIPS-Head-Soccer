@@ -2,9 +2,12 @@
 #include <stdint.h>
 #include "project.h"
 
+/* File written by Måns */
+
 uint8_t dot_color = 1;
 uint8_t left_goal[32][128];
 
+/* Written by Måns */
 void draw_left_goal() {
     display[31][0] = dot_color;
     display[30][0] = dot_color;
@@ -66,6 +69,7 @@ void draw_left_goal() {
 
 };
 
+/* Written by Måns */
 void draw_right_goal() {
 
     display[31][127] = dot_color;
@@ -128,6 +132,7 @@ void draw_right_goal() {
 
 };
 
+/* Written by Måns */
 void draw_ball(int x, int y) {
     
     display[y][x] = dot_color;      // Center pixel
@@ -172,6 +177,7 @@ void draw_ball(int x, int y) {
 
 };
 
+/* Written by Måns */
 void draw_player1(int x, int y) {
     
     display[y][x] = dot_color;      // Bottom left pixel
@@ -209,6 +215,7 @@ void draw_player1(int x, int y) {
     display[y - 6][x + 3] = dot_color;
 };
 
+/* Written by Måns */
 void draw_player2(int x, int y) {
     
     display[y][x] = dot_color;      // Bottom right pixel
