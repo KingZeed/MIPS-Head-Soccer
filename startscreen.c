@@ -37,7 +37,7 @@ void show_credits() {
     clear_displaytext();
     display_string(0, "MIPS Head Soccer");
     display_string(1, "Mans Zellman");
-    display_string(2, "Max Ahglren");
+    display_string(2, "Max Ahlgren");
     display_string(3, "Startmenu  (1)");
     while(1) {
         string_update();
