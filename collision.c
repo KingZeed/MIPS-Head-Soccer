@@ -8,6 +8,7 @@ float bounce_ground = 0.82;
 float gravity = 0.05;
 float friction = 0.005;
 
+/* Written by Max */
 void check_crossbar_collision() {
     if(ball.pos_y + BALL_RADIUS <= 15) {
         // Right crossbar
@@ -25,6 +26,7 @@ void check_crossbar_collision() {
     }
 }
 
+/* Written by Måns */
 void check_goal() {
     if (ball.pos_x <= 13 && ball.pos_y > 15) {
         goal(2);
@@ -35,6 +37,7 @@ void check_goal() {
     }
 }
 
+/* Written by Max */
 void check_barriar_collision() {
     check_crossbar_collision();
     if(ball.pos_y + BALL_RADIUS >= DISPLAY_HEIGHT){
@@ -59,7 +62,7 @@ void check_barriar_collision() {
     }
 }
 
-
+/* Written by Måns */
 void shoot(){
     if (ball.speed_x < 0) {
         ball.pos_x += 3;
@@ -72,6 +75,7 @@ void shoot(){
     ball.speed_y = -2.5;  
 }
 
+/* Written by Måns */
 void bounce_player() {
     if (ball.speed_x < 0) {
         ball.pos_x += 3;
@@ -82,6 +86,7 @@ void bounce_player() {
     ball.speed_x *= -1.4;
 }
 
+/* Written by Måns */
 void head_player() {
     ball.pos_y -= 4;
     if (ball.speed_x < 0) {
@@ -94,6 +99,7 @@ void head_player() {
     //ball.speed_x *= -1.5;
 }
 
+/* Written by Max */
 void move_ball() {
     // Lowest speed limit
     if (ball.speed_x <= 0 && ball.speed_x > -1) {
@@ -127,6 +133,7 @@ void move_ball() {
  
 }
 
+/* Written by Måns */
 void check_player1_ball_collision() {
     
     // For Player 1
@@ -155,6 +162,7 @@ void check_player1_ball_collision() {
     
 }
 
+/* Written by Måns */
 void check_player2_ball_collision() { 
     
     // For Player 2

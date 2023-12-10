@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include "project.h"
 
+/* Written by Måns */
 struct Player p1 = {24, 31, 1};
 struct Player p2 = {103, 31, 1};
 
@@ -22,6 +23,7 @@ int left = 1;
 struct Ball ball = {63, 12, -2, -1};
 
 
+/* Written by Måns */
 void bot_thinking(int *bot_difficulty) {
     if (*bot_difficulty) {
         hardbot_thinking();
@@ -30,6 +32,8 @@ void bot_thinking(int *bot_difficulty) {
         easybot_thinking();
     }
 }
+
+/* Written by both */
 void check_player1_inputs() {
     if (get_button(4)) {
         move_player_left(1);
@@ -43,6 +47,7 @@ void check_player1_inputs() {
     }
 }
 
+/* Written by both */
 void check_player1_inputs_singleplayer() {
     if (get_button(4)) {
         move_player_left(1);
@@ -56,6 +61,7 @@ void check_player1_inputs_singleplayer() {
     }
 }
 
+/* Written by both */
 void check_player2_inputs() {
     if (get_button(2)) {
         move_player_left(2);
@@ -70,7 +76,7 @@ void check_player2_inputs() {
 }
 
 
-
+/* Written by Måns */
 void move_player_right(int player_number) {
     if (player_number == 1 && p1.pos_x <= 55) {
         p1.pos_x += p1.speed;
@@ -80,6 +86,7 @@ void move_player_right(int player_number) {
     }
 }
 
+/* Written by Måns */
 void move_player_left(int player_number) {
     if (player_number == 1 && p1.pos_x >= 1) {
         p1.pos_x -= p1.speed;
@@ -89,7 +96,7 @@ void move_player_left(int player_number) {
     }
 }
 
-
+/* Written by both */
 void check_jump_player1() {
 
     const int jump_height = 21;
@@ -117,6 +124,7 @@ void check_jump_player1() {
 
 }
 
+/* Written by both */
 void check_jump_player2(){
     const int jump_height = 21;
 
@@ -144,7 +152,7 @@ void check_jump_player2(){
     }
 }
 
-
+/* Written by Max */
 void hardbot_thinking() {
     // ball is not on bot side
     if(ball.pos_y < 25 && p2.pos_y == 31 && p2_ready){
@@ -190,6 +198,7 @@ void hardbot_thinking() {
     }
 }
 
+/* Written by Max */
 void easybot_thinking() {
     // ball is not on bot side
     if(ball.pos_y < 10 && p2.pos_y == 31){
@@ -234,6 +243,7 @@ void easybot_thinking() {
 
 }
 
+/* Written by Max */
 void reset_pos(int player){
     
     p1.pos_x = 24;

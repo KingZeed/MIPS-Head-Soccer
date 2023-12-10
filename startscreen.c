@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include "project.h"
 
+/* Written by Måns */
 void startscreen() {
     clear_displaytext();
     display_string(0, "Singleplayer (4)");
@@ -31,6 +32,7 @@ void startscreen() {
     }
 }
 
+/* Written by Max */
 void show_credits() {
     clear_displaytext();
     display_string(0, "MIPS Head Soccer");

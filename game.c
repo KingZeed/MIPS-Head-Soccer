@@ -9,6 +9,7 @@ int playing_singleplayer = 0;
 int playing_multiplayer = 0;
 int bot_difficulty;
 
+/* Written by Måns */
 void singleplayer() {
 
     clear_displaytext();
@@ -37,6 +38,7 @@ void singleplayer() {
     }
 }
 
+/* Written by Måns */
 void multiplayer(){
     clear_displaytext();
     display_string(0, "Multiplayer");
@@ -57,6 +59,7 @@ void multiplayer(){
     }
 }
 
+/* Written by both */
 multiplayer_game_loop() {
         
     while (1) {
@@ -89,6 +92,7 @@ multiplayer_game_loop() {
 	}
 }
 
+/* Written by both */
 singleplayer_game_loop() {
     
     while (1) {
@@ -120,6 +124,7 @@ singleplayer_game_loop() {
     }
 }
 
+/* Written by Max */
 void end_game(int winner) {
 
     if(playing_singleplayer) {
@@ -147,6 +152,7 @@ void end_game(int winner) {
     
 }
 
+/* Written by Max */
 void goal(int player){
     // When player1 scores
     if(player == 1){
@@ -166,6 +172,7 @@ void goal(int player){
         }
     }
     
+    /* Written by Max */
     display_goal_animation();
     if(playing_singleplayer){
         reset_pos(2);
@@ -183,6 +190,7 @@ void goal(int player){
     
 }
 
+/* Written by Max */
 void display_score() {
     
     if(playing_multiplayer){
@@ -202,6 +210,7 @@ void display_score() {
     
 }
 
+/* Written by Max */
 int calculate_binary(score) {
 
     if(score <= 1) {
@@ -216,6 +225,7 @@ int calculate_binary(score) {
 
 }
 
+/* Written by Max */
 void display_goal_animation() {
     int i;
     clear_displaytext();
@@ -233,6 +243,7 @@ void display_goal_animation() {
     }
 }
 
+/* Written by Max */
 void int_to_char2(int points, char *score) {
     int d1, d2, d3;
     d3 = (points % 10);
@@ -245,6 +256,7 @@ void int_to_char2(int points, char *score) {
     score[3] = '\0'; 
 }
 
+/* Written by Max */
 void game_over_animation(score) {
     int i;
     char display_score[4]; 
@@ -264,6 +276,7 @@ void game_over_animation(score) {
     }
 }
 
+/* Written by Max */
 void result_animation(winner) {
     int i;
     
